@@ -1075,6 +1075,9 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4DCofThisEvent.hh \
   /usr/local/include/Geant4/G4DataVector.hh \
   /usr/local/include/Geant4/G4DataVector.icc \
+  /usr/local/include/Geant4/G4Decay.hh \
+  /usr/local/include/Geant4/G4DecayPhysics.hh \
+  /usr/local/include/Geant4/G4DecayProcessType.hh \
   /usr/local/include/Geant4/G4DensityEffectCalculator.hh \
   /usr/local/include/Geant4/G4DigiFilterFactories.hh \
   /usr/local/include/Geant4/G4DynamicParticle.hh \
@@ -1085,6 +1088,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4ElementVector.hh \
   /usr/local/include/Geant4/G4Ellipsoid.hh \
   /usr/local/include/Geant4/G4Ellipsoid.icc \
+  /usr/local/include/Geant4/G4EmSaturation.hh \
   /usr/local/include/Geant4/G4EmStandardPhysics.hh \
   /usr/local/include/Geant4/G4EnvironmentUtils.hh \
   /usr/local/include/Geant4/G4Event.hh \
@@ -1144,6 +1148,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4OpenGLQt.hh \
   /usr/local/include/Geant4/G4OpenGLStoredQt.hh \
   /usr/local/include/Geant4/G4OpticalParameters.hh \
+  /usr/local/include/Geant4/G4OpticalPhoton.hh \
   /usr/local/include/Geant4/G4OpticalPhysics.hh \
   /usr/local/include/Geant4/G4Orb.hh \
   /usr/local/include/Geant4/G4Orb.icc \
@@ -1156,6 +1161,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4ParameterisedNavigation.icc \
   /usr/local/include/Geant4/G4ParticleChange.hh \
   /usr/local/include/Geant4/G4ParticleChange.icc \
+  /usr/local/include/Geant4/G4ParticleChangeForDecay.hh \
   /usr/local/include/Geant4/G4ParticleDefinition.hh \
   /usr/local/include/Geant4/G4ParticleDefinition.icc \
   /usr/local/include/Geant4/G4ParticleGun.hh \
@@ -1199,6 +1205,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4Profiler.icc \
   /usr/local/include/Geant4/G4PseudoScene.hh \
   /usr/local/include/Geant4/G4Qt3D.hh \
+  /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh \
   /usr/local/include/Geant4/G4RayTracer.hh \
   /usr/local/include/Geant4/G4ReferenceCountedHandle.hh \
   /usr/local/include/Geant4/G4Region.hh \
@@ -1215,6 +1222,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4SceneHandlerList.hh \
   /usr/local/include/Geant4/G4SceneList.hh \
   /usr/local/include/Geant4/G4SceneTreeItem.hh \
+  /usr/local/include/Geant4/G4Scintillation.hh \
   /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
   /usr/local/include/Geant4/G4SmartTrackStack.hh \
   /usr/local/include/Geant4/G4SmartVoxelHeader.hh \
@@ -1316,6 +1324,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: /Users/maria/Desktop/Máster/
   /usr/local/include/Geant4/G4VProcess.hh \
   /usr/local/include/Geant4/G4VRML2File.hh \
   /usr/local/include/Geant4/G4VReadOutGeometry.hh \
+  /usr/local/include/Geant4/G4VRestDiscreteProcess.hh \
   /usr/local/include/Geant4/G4VSDFilter.hh \
   /usr/local/include/Geant4/G4VSceneHandler.hh \
   /usr/local/include/Geant4/G4VSceneHandler.icc \
@@ -5417,6 +5426,7 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/arm/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/arm/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/arm/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/all_of.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/any_of.h \
@@ -5741,6 +5751,22 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__exception/nested_exception.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__exception/operations.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__exception/terminate.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/operations.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/path.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/perms.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/space_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__format/buffer.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__format/concepts.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__format/enable_insertable.h \
@@ -6121,6 +6147,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/exception \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/execution \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/fenv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/filesystem \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/future \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/initializer_list \
@@ -6313,55 +6341,208 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/physics.hh \
+  /usr/local/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
+  /usr/local/include/Geant4/CLHEP/Geometry/Normal3D.h \
+  /usr/local/include/Geant4/CLHEP/Geometry/Point3D.h \
+  /usr/local/include/Geant4/CLHEP/Geometry/Transform3D.h \
+  /usr/local/include/Geant4/CLHEP/Geometry/Transform3D.icc \
+  /usr/local/include/Geant4/CLHEP/Geometry/Vector3D.h \
+  /usr/local/include/Geant4/CLHEP/Random/DualRand.h \
+  /usr/local/include/Geant4/CLHEP/Random/JamesRandom.h \
+  /usr/local/include/Geant4/CLHEP/Random/MTwistEngine.h \
+  /usr/local/include/Geant4/CLHEP/Random/MixMaxRng.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandBinomial.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandBinomial.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandBit.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandBit.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandBreitWigner.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandBreitWigner.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandChiSquare.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandChiSquare.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandExpZiggurat.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandExponential.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandExponential.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandFlat.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandFlat.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandGamma.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandGamma.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandGauss.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandGauss.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandGaussQ.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandGaussQ.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandGaussZiggurat.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandGeneral.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandGeneral.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandLandau.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandLandau.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandPoisson.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandPoisson.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandPoissonQ.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandPoissonQ.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandStudentT.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandStudentT.icc \
+  /usr/local/include/Geant4/CLHEP/Random/Random.h \
+  /usr/local/include/Geant4/CLHEP/Random/Random.icc \
+  /usr/local/include/Geant4/CLHEP/Random/RandomEngine.h \
+  /usr/local/include/Geant4/CLHEP/Random/RandomEngine.icc \
+  /usr/local/include/Geant4/CLHEP/Random/Randomize.h \
+  /usr/local/include/Geant4/CLHEP/Random/RanecuEngine.h \
+  /usr/local/include/Geant4/CLHEP/Random/Ranlux64Engine.h \
+  /usr/local/include/Geant4/CLHEP/Random/RanluxEngine.h \
+  /usr/local/include/Geant4/CLHEP/Random/RanluxppEngine.h \
+  /usr/local/include/Geant4/CLHEP/Random/RanshiEngine.h \
   /usr/local/include/Geant4/CLHEP/Units/PhysicalConstants.h \
   /usr/local/include/Geant4/CLHEP/Units/SystemOfUnits.h \
   /usr/local/include/Geant4/CLHEP/Utility/defs.h \
+  /usr/local/include/Geant4/CLHEP/Utility/memory.h \
+  /usr/local/include/Geant4/CLHEP/Utility/thread_local.h \
+  /usr/local/include/Geant4/CLHEP/Vector/AxisAngle.h \
+  /usr/local/include/Geant4/CLHEP/Vector/AxisAngle.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/LorentzVector.h \
+  /usr/local/include/Geant4/CLHEP/Vector/LorentzVector.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/Rotation.h \
+  /usr/local/include/Geant4/CLHEP/Vector/Rotation.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationX.h \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationX.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationY.h \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationY.icc \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationZ.h \
+  /usr/local/include/Geant4/CLHEP/Vector/RotationZ.icc \
   /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.h \
   /usr/local/include/Geant4/CLHEP/Vector/ThreeVector.icc \
+  /usr/local/include/Geant4/G4AffineTransform.hh \
+  /usr/local/include/Geant4/G4AffineTransform.icc \
+  /usr/local/include/Geant4/G4Allocator.hh \
+  /usr/local/include/Geant4/G4AllocatorPool.hh \
   /usr/local/include/Geant4/G4AutoLock.hh \
   /usr/local/include/Geant4/G4Backtrace.hh \
   /usr/local/include/Geant4/G4Cache.hh \
   /usr/local/include/Geant4/G4CacheDetails.hh \
+  /usr/local/include/Geant4/G4DataVector.hh \
+  /usr/local/include/Geant4/G4DataVector.icc \
+  /usr/local/include/Geant4/G4Decay.hh \
+  /usr/local/include/Geant4/G4DecayPhysics.hh \
+  /usr/local/include/Geant4/G4DecayProcessType.hh \
+  /usr/local/include/Geant4/G4DensityEffectCalculator.hh \
+  /usr/local/include/Geant4/G4DynamicParticle.hh \
+  /usr/local/include/Geant4/G4DynamicParticle.icc \
+  /usr/local/include/Geant4/G4ElectronOccupancy.hh \
+  /usr/local/include/Geant4/G4Element.hh \
+  /usr/local/include/Geant4/G4ElementTable.hh \
+  /usr/local/include/Geant4/G4ElementVector.hh \
+  /usr/local/include/Geant4/G4EmSaturation.hh \
   /usr/local/include/Geant4/G4EmStandardPhysics.hh \
   /usr/local/include/Geant4/G4EnvironmentUtils.hh \
   /usr/local/include/Geant4/G4Exception.hh \
   /usr/local/include/Geant4/G4ExceptionSeverity.hh \
+  /usr/local/include/Geant4/G4ForceCondition.hh \
+  /usr/local/include/Geant4/G4GPILSelection.hh \
   /usr/local/include/Geant4/G4GeomSplitter.hh \
   /usr/local/include/Geant4/G4GlobalConfig.hh \
+  /usr/local/include/Geant4/G4IonisParamElm.hh \
+  /usr/local/include/Geant4/G4IonisParamMat.hh \
+  /usr/local/include/Geant4/G4Isotope.hh \
+  /usr/local/include/Geant4/G4IsotopeVector.hh \
+  /usr/local/include/Geant4/G4Log.hh \
+  /usr/local/include/Geant4/G4LogicalVolume.hh \
+  /usr/local/include/Geant4/G4LogicalVolume.icc \
+  /usr/local/include/Geant4/G4LorentzVector.hh \
   /usr/local/include/Geant4/G4MCCIndexConversionTable.hh \
+  /usr/local/include/Geant4/G4Material.hh \
   /usr/local/include/Geant4/G4MaterialCutsCouple.hh \
+  /usr/local/include/Geant4/G4MaterialPropertiesIndex.hh \
+  /usr/local/include/Geant4/G4MaterialPropertiesTable.hh \
+  /usr/local/include/Geant4/G4MaterialPropertyVector.hh \
+  /usr/local/include/Geant4/G4MaterialTable.hh \
+  /usr/local/include/Geant4/G4NavigationHistory.hh \
+  /usr/local/include/Geant4/G4NavigationHistory.icc \
+  /usr/local/include/Geant4/G4NavigationHistoryPool.hh \
+  /usr/local/include/Geant4/G4NavigationLevel.hh \
+  /usr/local/include/Geant4/G4NavigationLevel.icc \
+  /usr/local/include/Geant4/G4NavigationLevelRep.hh \
+  /usr/local/include/Geant4/G4NavigationLevelRep.icc \
   /usr/local/include/Geant4/G4OpticalParameters.hh \
+  /usr/local/include/Geant4/G4OpticalPhoton.hh \
   /usr/local/include/Geant4/G4OpticalPhysics.hh \
+  /usr/local/include/Geant4/G4OrderedTable.hh \
   /usr/local/include/Geant4/G4PDefManager.hh \
+  /usr/local/include/Geant4/G4ParticleChange.hh \
+  /usr/local/include/Geant4/G4ParticleChange.icc \
+  /usr/local/include/Geant4/G4ParticleChangeForDecay.hh \
   /usr/local/include/Geant4/G4ParticleDefinition.hh \
   /usr/local/include/Geant4/G4ParticleDefinition.icc \
+  /usr/local/include/Geant4/G4ParticleMomentum.hh \
   /usr/local/include/Geant4/G4ParticleTable.hh \
   /usr/local/include/Geant4/G4ParticleTable.icc \
   /usr/local/include/Geant4/G4ParticleTableIterator.hh \
+  /usr/local/include/Geant4/G4PhysicsFreeVector.hh \
   /usr/local/include/Geant4/G4PhysicsListHelper.hh \
   /usr/local/include/Geant4/G4PhysicsListOrderingParameter.hh \
   /usr/local/include/Geant4/G4PhysicsModelCatalog.hh \
+  /usr/local/include/Geant4/G4PhysicsTable.hh \
+  /usr/local/include/Geant4/G4PhysicsTable.icc \
+  /usr/local/include/Geant4/G4PhysicsVector.hh \
+  /usr/local/include/Geant4/G4PhysicsVector.icc \
+  /usr/local/include/Geant4/G4PhysicsVectorType.hh \
+  /usr/local/include/Geant4/G4ProcessType.hh \
   /usr/local/include/Geant4/G4ProductionCuts.hh \
   /usr/local/include/Geant4/G4ProductionCutsTable.hh \
+  /usr/local/include/Geant4/G4Profiler.hh \
+  /usr/local/include/Geant4/G4Profiler.icc \
+  /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh \
+  /usr/local/include/Geant4/G4ReferenceCountedHandle.hh \
   /usr/local/include/Geant4/G4Region.hh \
   /usr/local/include/Geant4/G4Region.icc \
+  /usr/local/include/Geant4/G4RotationMatrix.hh \
+  /usr/local/include/Geant4/G4SandiaTable.hh \
+  /usr/local/include/Geant4/G4Scintillation.hh \
+  /usr/local/include/Geant4/G4Step.hh \
+  /usr/local/include/Geant4/G4Step.icc \
+  /usr/local/include/Geant4/G4StepPoint.hh \
+  /usr/local/include/Geant4/G4StepPoint.icc \
+  /usr/local/include/Geant4/G4StepStatus.hh \
+  /usr/local/include/Geant4/G4SteppingControl.hh \
   /usr/local/include/Geant4/G4String.hh \
   /usr/local/include/Geant4/G4String.icc \
   /usr/local/include/Geant4/G4ThreadLocalSingleton.hh \
   /usr/local/include/Geant4/G4Threading.hh \
   /usr/local/include/Geant4/G4ThreeVector.hh \
+  /usr/local/include/Geant4/G4TouchableHandle.hh \
+  /usr/local/include/Geant4/G4TouchableHistory.hh \
+  /usr/local/include/Geant4/G4TouchableHistory.icc \
+  /usr/local/include/Geant4/G4Track.hh \
+  /usr/local/include/Geant4/G4Track.icc \
+  /usr/local/include/Geant4/G4TrackStatus.hh \
+  /usr/local/include/Geant4/G4TrackVector.hh \
+  /usr/local/include/Geant4/G4Transform3D.hh \
   /usr/local/include/Geant4/G4Types.hh \
   /usr/local/include/Geant4/G4VModularPhysicsList.hh \
+  /usr/local/include/Geant4/G4VParticleChange.hh \
+  /usr/local/include/Geant4/G4VParticleChange.icc \
+  /usr/local/include/Geant4/G4VPhysicalVolume.hh \
+  /usr/local/include/Geant4/G4VPhysicalVolume.icc \
   /usr/local/include/Geant4/G4VPhysicsConstructor.hh \
+  /usr/local/include/Geant4/G4VProcess.hh \
+  /usr/local/include/Geant4/G4VRestDiscreteProcess.hh \
+  /usr/local/include/Geant4/G4VTouchable.hh \
   /usr/local/include/Geant4/G4VUPLSplitter.hh \
   /usr/local/include/Geant4/G4VUserPhysicsList.hh \
+  /usr/local/include/Geant4/G4VUserTrackInformation.hh \
   /usr/local/include/Geant4/G4ios.hh \
+  /usr/local/include/Geant4/PTL/Globals.hh \
+  /usr/local/include/Geant4/PTL/Types.hh \
+  /usr/local/include/Geant4/PTL/Utility.hh \
+  /usr/local/include/Geant4/Randomize.hh \
+  /usr/local/include/Geant4/geomdefs.hh \
   /usr/local/include/Geant4/geomwdefs.hh \
   /usr/local/include/Geant4/globals.hh \
   /usr/local/include/Geant4/pwdefs.hh \
   /usr/local/include/Geant4/rundefs.hh \
   /usr/local/include/Geant4/templates.hh \
-  /usr/local/include/Geant4/tls.hh
+  /usr/local/include/Geant4/tls.hh \
+  /usr/local/include/Geant4/trkdefs.hh
 
 
 /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/construction.cc:
@@ -6448,8 +6629,6 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 
 /usr/local/include/Geant4/G4VFilter.hh:
 
-/usr/local/include/Geant4/G4VFacet.hh:
-
 /usr/local/include/Geant4/G4VCSGfaceted.hh:
 
 /usr/local/include/Geant4/G4VCSGface.hh:
@@ -6532,6 +6711,10 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 
 /usr/local/include/Geant4/G4RayTracer.hh:
 
+/usr/local/include/Geant4/G4VFacet.hh:
+
+/usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh:
+
 /usr/local/include/Geant4/G4PseudoScene.hh:
 
 /usr/local/include/Geant4/G4Profiler.icc:
@@ -6541,6 +6724,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 /usr/local/include/Geant4/G4ProductionCuts.hh:
 
 /usr/local/include/Geant4/G4ProcessVector.hh:
+
+/usr/local/include/Geant4/G4VRestDiscreteProcess.hh:
 
 /usr/local/include/Geant4/G4ProcessManager.icc:
 
@@ -6579,6 +6764,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 /usr/local/include/Geant4/G4ParticleDefinition.icc:
 
 /usr/local/include/Geant4/G4ParticleDefinition.hh:
+
+/usr/local/include/Geant4/G4ParticleChangeForDecay.hh:
 
 /usr/local/include/Geant4/G4ParticleChange.icc:
 
@@ -6654,6 +6841,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 
 /usr/local/include/Geant4/G4Exception.hh:
 
+/usr/local/include/Geant4/G4EmSaturation.hh:
+
 /usr/local/include/Geant4/G4ElementTable.hh:
 
 /usr/local/include/Geant4/G4VDigi.hh:
@@ -6663,6 +6852,12 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 /usr/local/include/Geant4/G4DigiFilterFactories.hh:
 
 /usr/local/include/Geant4/G4DensityEffectCalculator.hh:
+
+/usr/local/include/Geant4/G4DecayProcessType.hh:
+
+/usr/local/include/Geant4/G4DecayPhysics.hh:
+
+/usr/local/include/Geant4/G4Decay.hh:
 
 /usr/local/include/Geant4/G4UserSteppingAction.hh:
 
@@ -8322,6 +8517,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/shift_right.h:
 
+/usr/local/include/Geant4/G4OpticalPhoton.hh:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__ranges/access.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__algorithm/shift_left.h:
@@ -8805,6 +9002,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/year_month_day.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__format/formatter_output.h:
+
+/usr/local/include/Geant4/G4Scintillation.hh:
 
 /usr/local/include/Geant4/G4NullModel.hh:
 

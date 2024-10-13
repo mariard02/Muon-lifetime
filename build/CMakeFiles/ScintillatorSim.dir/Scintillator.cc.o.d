@@ -1365,6 +1365,15 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: \
   /usr/local/include/Geant4/G4EmStandardPhysics.hh \
   /usr/local/include/Geant4/G4OpticalPhysics.hh \
   /usr/local/include/Geant4/G4OpticalParameters.hh \
+  /usr/local/include/Geant4/G4DecayPhysics.hh \
+  /usr/local/include/Geant4/G4Decay.hh \
+  /usr/local/include/Geant4/G4VRestDiscreteProcess.hh \
+  /usr/local/include/Geant4/G4ParticleChangeForDecay.hh \
+  /usr/local/include/Geant4/G4DecayProcessType.hh \
+  /usr/local/include/Geant4/G4Scintillation.hh \
+  /usr/local/include/Geant4/G4EmSaturation.hh \
+  /usr/local/include/Geant4/G4OpticalPhoton.hh \
+  /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/action.hh \
   /usr/local/include/Geant4/G4VUserActionInitialization.hh \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/generator.hh \
