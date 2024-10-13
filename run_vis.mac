@@ -1,0 +1,27 @@
+# see all available visualization driver
+#/vis/list
+# Choose a visualization driver (e.g., OpenGL)
+/vis/open HepRepFile
+
+/vis/scene/create
+/vis/scene/add/volume
+/vis/sceneHandler/attach
+/vis/viewer/flush
+/vis/scene/add/trajectories smooth
+/vis/scene/add/hits
+
+# To superimpose all of the events from a given run:
+#/vis/scene/endOfEventAction accumulate
+
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+
+# Control verbosity (optional)
+/run/verbose 0
+/tracking/verbose 0
+/event/verbose 0
+/process/optical/verbose 1
+
+/tracking/storeTrajectory 2
+/run/beamOn 1
