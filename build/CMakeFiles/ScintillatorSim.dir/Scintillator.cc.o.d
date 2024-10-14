@@ -1327,8 +1327,7 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: \
   /usr/local/include/Geant4/G4VReadOutGeometry.hh \
   /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
   /usr/local/include/Geant4/G4VSDFilter.hh \
-  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/physics.hh \
-  /usr/local/include/Geant4/G4VModularPhysicsList.hh \
+  /usr/local/include/Geant4/G4HadronPhysicsFTFP_BERT.hh \
   /usr/local/include/Geant4/G4VPhysicsConstructor.hh \
   /usr/local/include/Geant4/G4PhysicsListHelper.hh \
   /usr/local/include/Geant4/G4PhysicsListOrderingParameter.hh \
@@ -1357,6 +1356,8 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/regex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/deque \
   /usr/local/include/Geant4/G4VUPLSplitter.hh \
+  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/physics.hh \
+  /usr/local/include/Geant4/G4VModularPhysicsList.hh \
   /usr/local/include/Geant4/G4VUserPhysicsList.hh \
   /usr/local/include/Geant4/G4ProductionCutsTable.hh \
   /usr/local/include/Geant4/G4MaterialCutsCouple.hh \
@@ -1370,13 +1371,14 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o: \
   /usr/local/include/Geant4/G4VRestDiscreteProcess.hh \
   /usr/local/include/Geant4/G4ParticleChangeForDecay.hh \
   /usr/local/include/Geant4/G4DecayProcessType.hh \
-  /usr/local/include/Geant4/G4Scintillation.hh \
-  /usr/local/include/Geant4/G4EmSaturation.hh \
-  /usr/local/include/Geant4/G4OpticalPhoton.hh \
   /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/action.hh \
   /usr/local/include/Geant4/G4VUserActionInitialization.hh \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/generator.hh \
   /usr/local/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /usr/local/include/Geant4/G4ParticleGun.hh \
-  /usr/local/include/Geant4/G4VPrimaryGenerator.hh
+  /usr/local/include/Geant4/G4VPrimaryGenerator.hh \
+  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/RunAction.hh \
+  /usr/local/include/Geant4/G4UserRunAction.hh \
+  /usr/local/include/Geant4/G4Run.hh \
+  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/SteppingAction.hh

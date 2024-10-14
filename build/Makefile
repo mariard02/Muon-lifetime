@@ -153,6 +153,54 @@ Scintillator.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/Scintillator.cc.s
 .PHONY : Scintillator.cc.s
 
+src/RunAction.o: src/RunAction.cc.o
+.PHONY : src/RunAction.o
+
+# target to build an object file
+src/RunAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o
+.PHONY : src/RunAction.cc.o
+
+src/RunAction.i: src/RunAction.cc.i
+.PHONY : src/RunAction.i
+
+# target to preprocess a source file
+src/RunAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.i
+.PHONY : src/RunAction.cc.i
+
+src/RunAction.s: src/RunAction.cc.s
+.PHONY : src/RunAction.s
+
+# target to generate assembly for a file
+src/RunAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.s
+.PHONY : src/RunAction.cc.s
+
+src/SteppingAction.o: src/SteppingAction.cc.o
+.PHONY : src/SteppingAction.o
+
+# target to build an object file
+src/SteppingAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o
+.PHONY : src/SteppingAction.cc.o
+
+src/SteppingAction.i: src/SteppingAction.cc.i
+.PHONY : src/SteppingAction.i
+
+# target to preprocess a source file
+src/SteppingAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.i
+.PHONY : src/SteppingAction.cc.i
+
+src/SteppingAction.s: src/SteppingAction.cc.s
+.PHONY : src/SteppingAction.s
+
+# target to generate assembly for a file
+src/SteppingAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ScintillatorSim.dir/build.make CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.s
+.PHONY : src/SteppingAction.cc.s
+
 src/action.o: src/action.cc.o
 .PHONY : src/action.o
 
@@ -285,6 +333,12 @@ help:
 	@echo "... Scintillator.o"
 	@echo "... Scintillator.i"
 	@echo "... Scintillator.s"
+	@echo "... src/RunAction.o"
+	@echo "... src/RunAction.i"
+	@echo "... src/RunAction.s"
+	@echo "... src/SteppingAction.o"
+	@echo "... src/SteppingAction.i"
+	@echo "... src/SteppingAction.s"
 	@echo "... src/action.o"
 	@echo "... src/action.i"
 	@echo "... src/action.s"

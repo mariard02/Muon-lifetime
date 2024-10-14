@@ -1142,7 +1142,5 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: \
   /usr/local/include/Geant4/G4ProcessType.hh \
   /usr/local/include/Geant4/G4ParticleChangeForDecay.hh \
   /usr/local/include/Geant4/G4DecayProcessType.hh \
-  /usr/local/include/Geant4/G4Scintillation.hh \
-  /usr/local/include/Geant4/G4EmSaturation.hh \
-  /usr/local/include/Geant4/G4OpticalPhoton.hh \
-  /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh
+  /usr/local/include/Geant4/G4RadioactiveDecayPhysics.hh \
+  /usr/local/include/Geant4/G4HadronPhysicsFTFP_BERT.hh

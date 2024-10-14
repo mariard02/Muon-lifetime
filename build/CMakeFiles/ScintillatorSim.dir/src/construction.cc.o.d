@@ -1071,4 +1071,38 @@ CMakeFiles/ScintillatorSim.dir/src/construction.cc.o: \
   /usr/local/include/Geant4/G4VHit.hh \
   /usr/local/include/Geant4/G4VReadOutGeometry.hh \
   /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
-  /usr/local/include/Geant4/G4VSDFilter.hh
+  /usr/local/include/Geant4/G4VSDFilter.hh \
+  /usr/local/include/Geant4/G4HadronPhysicsFTFP_BERT.hh \
+  /usr/local/include/Geant4/G4VPhysicsConstructor.hh \
+  /usr/local/include/Geant4/G4ParticleTable.hh \
+  /usr/local/include/Geant4/G4ParticleTableIterator.hh \
+  /usr/local/include/Geant4/G4ParticleTable.icc \
+  /usr/local/include/Geant4/G4PhysicsListHelper.hh \
+  /usr/local/include/Geant4/G4PhysicsListOrderingParameter.hh \
+  /usr/local/include/Geant4/G4ThreadLocalSingleton.hh \
+  /usr/local/include/Geant4/G4Cache.hh \
+  /usr/local/include/Geant4/G4CacheDetails.hh \
+  /usr/local/include/Geant4/G4Backtrace.hh \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cxxabi.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__cxxabi_config.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/execinfo.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/os/base.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/os/availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/uuid/uuid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/_types/_uuid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/_types/_posix_vdisable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/sys/_select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/gethostuuid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cfenv \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/fenv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/fenv.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/csignal \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/regex \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/deque \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/list \
+  /usr/local/include/Geant4/G4VUPLSplitter.hh \
+  /usr/local/include/Geant4/rundefs.hh

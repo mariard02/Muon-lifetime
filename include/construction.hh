@@ -12,6 +12,8 @@
 
 #include "detector.hh"
 
+#include "G4HadronPhysicsFTFP_BERT.hh"
+
 class MyDetectorConstruction : public G4VUserDetectorConstruction
 {
 public:

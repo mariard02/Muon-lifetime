@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o"
   "CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o.d"
+  "CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o"
+  "CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o.d"
+  "CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o"
+  "CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o.d"
   "CMakeFiles/ScintillatorSim.dir/src/action.cc.o"
   "CMakeFiles/ScintillatorSim.dir/src/action.cc.o.d"
   "CMakeFiles/ScintillatorSim.dir/src/construction.cc.o"

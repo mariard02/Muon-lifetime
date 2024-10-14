@@ -1040,67 +1040,7 @@ CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o: \
   /usr/local/include/Geant4/G4VUserTrackInformation.hh \
   /usr/local/include/Geant4/G4PhysicsModelCatalog.hh \
   /usr/local/include/Geant4/G4Track.icc \
-  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/EventAction.hh \
-  /usr/local/include/Geant4/G4UserEventAction.hh \
-  /usr/local/include/Geant4/G4Event.hh \
-  /usr/local/include/Geant4/evtdefs.hh \
-  /usr/local/include/Geant4/G4PrimaryVertex.hh \
-  /usr/local/include/Geant4/G4PrimaryParticle.hh \
-  /usr/local/include/Geant4/G4HCofThisEvent.hh \
-  /usr/local/include/Geant4/G4VHitsCollection.hh \
-  /usr/local/include/Geant4/G4DCofThisEvent.hh \
-  /usr/local/include/Geant4/G4VDigiCollection.hh \
-  /usr/local/include/Geant4/G4TrajectoryContainer.hh \
-  /usr/local/include/Geant4/G4VTrajectory.hh \
-  /usr/local/include/Geant4/G4VUserEventInformation.hh \
-  /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/RunAction.hh \
-  /usr/local/include/Geant4/G4UserRunAction.hh \
-  /usr/local/include/Geant4/G4Run.hh \
-  /usr/local/include/Geant4/G4RunManager.hh \
-  /usr/local/include/Geant4/G4EventManager.hh \
-  /usr/local/include/Geant4/G4StackManager.hh \
-  /usr/local/include/Geant4/G4UserStackingAction.hh \
-  /usr/local/include/Geant4/G4ClassificationOfNewTrack.hh \
-  /usr/local/include/Geant4/G4StackedTrack.hh \
-  /usr/local/include/Geant4/G4TrackStack.hh \
-  /usr/local/include/Geant4/G4SmartTrackStack.hh \
-  /usr/local/include/Geant4/G4SubEventTrackStack.hh \
-  /usr/local/include/Geant4/G4SubEvent.hh \
-  /usr/local/include/Geant4/G4PrimaryTransformer.hh \
-  /usr/local/include/Geant4/G4ParticleTable.hh \
-  /usr/local/include/Geant4/G4ParticleTableIterator.hh \
-  /usr/local/include/Geant4/G4ParticleTable.icc \
-  /usr/local/include/Geant4/G4TrackingManager.hh \
-  /usr/local/include/Geant4/G4SteppingManager.hh \
-  /usr/local/include/Geant4/G4Navigator.hh \
-  /usr/local/include/Geant4/G4NormalNavigation.hh \
-  /usr/local/include/Geant4/G4VNavigation.hh \
-  /usr/local/include/Geant4/G4VSolid.hh \
-  /usr/local/include/Geant4/G4VSolid.icc \
-  /usr/local/include/Geant4/G4AuxiliaryNavServices.hh \
-  /usr/local/include/Geant4/G4AuxiliaryNavServices.icc \
-  /usr/local/include/Geant4/G4NormalNavigation.icc \
-  /usr/local/include/Geant4/G4VoxelNavigation.hh \
-  /usr/local/include/Geant4/G4NavigationLogger.hh \
-  /usr/local/include/Geant4/G4BlockingList.hh \
-  /usr/local/include/Geant4/G4BlockingList.icc \
-  /usr/local/include/Geant4/G4SmartVoxelProxy.hh \
-  /usr/local/include/Geant4/G4SmartVoxelProxy.icc \
-  /usr/local/include/Geant4/G4SmartVoxelNode.hh \
-  /usr/local/include/Geant4/G4SmartVoxelNode.icc \
-  /usr/local/include/Geant4/G4SmartVoxelHeader.hh \
-  /usr/local/include/Geant4/G4SmartVoxelHeader.icc \
-  /usr/local/include/Geant4/G4VoxelNavigation.icc \
-  /usr/local/include/Geant4/G4ParameterisedNavigation.hh \
-  /usr/local/include/Geant4/G4VPVParameterisation.hh \
-  /usr/local/include/Geant4/G4VVolumeMaterialScanner.hh \
-  /usr/local/include/Geant4/G4ParameterisedNavigation.icc \
-  /usr/local/include/Geant4/G4ReplicaNavigation.hh \
-  /usr/local/include/Geant4/G4ReplicaNavigation.icc \
-  /usr/local/include/Geant4/G4RegularNavigation.hh \
-  /usr/local/include/Geant4/G4VExternalNavigation.hh \
-  /usr/local/include/Geant4/G4Navigator.icc \
-  /usr/local/include/Geant4/G4NoProcess.hh \
+  /usr/local/include/Geant4/G4OpticalPhoton.hh \
   /usr/local/include/Geant4/G4VProcess.hh \
   /usr/local/include/Geant4/Randomize.hh \
   /usr/local/include/Geant4/CLHEP/Random/Randomize.h \
@@ -1158,24 +1098,4 @@ CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o: \
   /usr/local/include/Geant4/G4ParticleChange.hh \
   /usr/local/include/Geant4/G4ParticleChange.icc \
   /usr/local/include/Geant4/G4ProcessType.hh \
-  /usr/local/include/Geant4/G4ProcessManager.hh \
-  /usr/local/include/Geant4/G4ProcessVector.hh \
-  /usr/local/include/Geant4/G4ProcessVector.icc \
-  /usr/local/include/Geant4/G4ProcessManager.icc \
-  /usr/local/include/Geant4/G4VSteppingVerbose.hh \
-  /usr/local/include/Geant4/trkgdefs.hh \
-  /usr/local/include/Geant4/G4TrackingMessenger.hh \
-  /usr/local/include/Geant4/G4UImessenger.hh \
-  /usr/local/include/Geant4/G4UIdirectory.hh \
-  /usr/local/include/Geant4/G4UIcommand.hh \
-  /usr/local/include/Geant4/G4ApplicationState.hh \
-  /usr/local/include/Geant4/G4UIparameter.hh \
-  /usr/local/include/Geant4/G4UItokenNum.hh \
-  /usr/local/include/Geant4/G4UserTrackingAction.hh \
-  /usr/local/include/Geant4/G4RunManagerKernel.hh \
-  /usr/local/include/Geant4/rundefs.hh \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/list \
-  /usr/local/include/Geant4/G4OpticalPhoton.hh \
-  /usr/local/include/Geant4/G4SystemOfUnits.hh \
-  /usr/local/include/Geant4/G4UnitsTable.hh \
-  /usr/local/include/Geant4/G4UnitsTable.icc
+  /usr/local/include/Geant4/G4SystemOfUnits.hh

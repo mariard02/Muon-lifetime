@@ -83,10 +83,38 @@ CMakeFiles/ScintillatorSim.dir/Scintillator.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ScintillatorSim.dir/Scintillator.cc.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/Scintillator.cc" -o CMakeFiles/ScintillatorSim.dir/Scintillator.cc.s
 
+CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
+CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/RunAction.cc
+CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/RunAction.cc"
+
+CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/RunAction.cc" > CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.i
+
+CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/RunAction.cc" -o CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.s
+
+CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
+CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/SteppingAction.cc
+CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/SteppingAction.cc"
+
+CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/SteppingAction.cc" > CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.i
+
+CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/SteppingAction.cc" -o CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.s
+
 CMakeFiles/ScintillatorSim.dir/src/action.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
 CMakeFiles/ScintillatorSim.dir/src/action.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/action.cc
 CMakeFiles/ScintillatorSim.dir/src/action.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/action.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/action.cc.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/action.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/action.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/action.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/action.cc"
 
 CMakeFiles/ScintillatorSim.dir/src/action.cc.i: cmake_force
@@ -100,7 +128,7 @@ CMakeFiles/ScintillatorSim.dir/src/action.cc.s: cmake_force
 CMakeFiles/ScintillatorSim.dir/src/construction.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
 CMakeFiles/ScintillatorSim.dir/src/construction.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/construction.cc
 CMakeFiles/ScintillatorSim.dir/src/construction.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/construction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/construction.cc.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/construction.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/construction.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/construction.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/construction.cc"
 
 CMakeFiles/ScintillatorSim.dir/src/construction.cc.i: cmake_force
@@ -114,7 +142,7 @@ CMakeFiles/ScintillatorSim.dir/src/construction.cc.s: cmake_force
 CMakeFiles/ScintillatorSim.dir/src/detector.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
 CMakeFiles/ScintillatorSim.dir/src/detector.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/detector.cc
 CMakeFiles/ScintillatorSim.dir/src/detector.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/detector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/detector.cc.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/detector.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/detector.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/detector.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/detector.cc"
 
 CMakeFiles/ScintillatorSim.dir/src/detector.cc.i: cmake_force
@@ -128,7 +156,7 @@ CMakeFiles/ScintillatorSim.dir/src/detector.cc.s: cmake_force
 CMakeFiles/ScintillatorSim.dir/src/generator.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
 CMakeFiles/ScintillatorSim.dir/src/generator.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/generator.cc
 CMakeFiles/ScintillatorSim.dir/src/generator.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/generator.cc.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/generator.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/generator.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/generator.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/generator.cc"
 
 CMakeFiles/ScintillatorSim.dir/src/generator.cc.i: cmake_force
@@ -142,7 +170,7 @@ CMakeFiles/ScintillatorSim.dir/src/generator.cc.s: cmake_force
 CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: CMakeFiles/ScintillatorSim.dir/flags.make
 CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/src/physics.cc
 CMakeFiles/ScintillatorSim.dir/src/physics.cc.o: CMakeFiles/ScintillatorSim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/physics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ScintillatorSim.dir/src/physics.cc.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScintillatorSim.dir/src/physics.cc.o -MF CMakeFiles/ScintillatorSim.dir/src/physics.cc.o.d -o CMakeFiles/ScintillatorSim.dir/src/physics.cc.o -c "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/src/physics.cc"
 
 CMakeFiles/ScintillatorSim.dir/src/physics.cc.i: cmake_force
@@ -156,6 +184,8 @@ CMakeFiles/ScintillatorSim.dir/src/physics.cc.s: cmake_force
 # Object files for target ScintillatorSim
 ScintillatorSim_OBJECTS = \
 "CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o" \
+"CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o" \
+"CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o" \
 "CMakeFiles/ScintillatorSim.dir/src/action.cc.o" \
 "CMakeFiles/ScintillatorSim.dir/src/construction.cc.o" \
 "CMakeFiles/ScintillatorSim.dir/src/detector.cc.o" \
@@ -166,6 +196,8 @@ ScintillatorSim_OBJECTS = \
 ScintillatorSim_EXTERNAL_OBJECTS =
 
 ScintillatorSim: CMakeFiles/ScintillatorSim.dir/Scintillator.cc.o
+ScintillatorSim: CMakeFiles/ScintillatorSim.dir/src/RunAction.cc.o
+ScintillatorSim: CMakeFiles/ScintillatorSim.dir/src/SteppingAction.cc.o
 ScintillatorSim: CMakeFiles/ScintillatorSim.dir/src/action.cc.o
 ScintillatorSim: CMakeFiles/ScintillatorSim.dir/src/construction.cc.o
 ScintillatorSim: CMakeFiles/ScintillatorSim.dir/src/detector.cc.o
@@ -213,7 +245,7 @@ ScintillatorSim: /usr/local/lib/libG4global.dylib
 ScintillatorSim: /usr/local/lib/libG4clhep.dylib
 ScintillatorSim: /usr/local/lib/libG4ptl.2.3.3.dylib
 ScintillatorSim: CMakeFiles/ScintillatorSim.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ScintillatorSim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ScintillatorSim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ScintillatorSim.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
