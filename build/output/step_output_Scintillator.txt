@@ -1,4 +1,3 @@
-Track_photon_ID	Energy_MeV	Wavelength_nm	Time_ns
 284	6.98704	177.449	21.6778
 283	6.91191	179.378	21.523
 282	6.9594	178.153	16.1895
