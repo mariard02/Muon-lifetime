@@ -11,11 +11,11 @@
 SteppingAction::SteppingAction()
 {
 	// Open a file to save the energies of the photons
-	_StepOutputFile1.open("./output/step_output_Scintillator.txt", std::ios::app);
+	_StepOutputFile1.open("./output/step_output_Scintillator1.txt", std::ios::app);
 	if (!_StepOutputFile1.is_open()) {
         G4cerr << "Error: No se pudo abrir el archivo para guardar datos de los fotones.\n";
     } else {
-        _StepOutputFile1 << "Track_photon_ID\tEnergy_MeV\tWavelength_nm\tTime_ns\n";
+        //_StepOutputFile1 << "Track_photon_ID\tEnergy_MeV\tWavelength_nm\tTime_ns\n";
         _StepOutputFile1.flush();  // Forzar la escritura al archivo
     }
 }

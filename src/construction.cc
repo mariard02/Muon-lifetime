@@ -22,40 +22,38 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	G4Element* Na = nist->FindOrBuildElement("Na");
 	G4Element* I = nist->FindOrBuildElement("I");
 
-	G4Material* scintillator = new G4Material("NaI", density=3.67*g/cm3, ncomponents=2);
-	scintillator->AddElement(Na, fractionmass=0.5);
-	scintillator->AddElement(I, fractionmass=0.5);
+	//G4Material* scintillator = new G4Material("NaI", density=3.67*g/cm3, ncomponents=2);
+	//scintillator->AddElement(Na, fractionmass=0.5);
+	//scintillator->AddElement(I, fractionmass=0.5);
+	G4Material* scintillator = nist->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 	
 	// scintillator properties
 	std::vector<G4double> energy     = {2.034*eV, 3.*eV, 4.136*eV};
-	std::vector<G4double> rindex     = {1.3435, 1.351, 1.3608};
-	std::vector<G4double> absorption = {344.8*cm, 850.*cm, 1450.0*cm};
+	std::vector<G4double> rindex     = {1.58, 1.58, 1.58};
+	std::vector<G4double> absorption = {400.*cm, 400.*cm, 400.0*cm};
 	
 	G4MaterialPropertiesTable* MPT = new G4MaterialPropertiesTable();
 	
 	// property independent of energy
-	MPT->AddConstProperty("SCINTILLATIONYIELD", 100./MeV);
+	MPT->AddConstProperty("SCINTILLATIONYIELD", 9200./MeV);
 	
 	// properties that depend on energy
 	MPT->AddProperty("RINDEX", energy, rindex);
 	MPT->AddProperty("ABSLENGTH", energy, absorption);
 	
 	
-	const G4int NUMENTRIES = 9;
-	G4double Scnt_PP[NUMENTRIES] = { 6.6*eV, 6.7*eV, 6.8*eV, 6.9*eV,
-	7.0*eV, 7.1*eV, 7.2*eV, 7.3*eV, 7.4*eV };
-	G4double Scnt_FAST[NUMENTRIES] = { 0.000134, 0.004432, 0.053991, 0.241971,
-	0.398942, 0.000134, 0.004432, 0.053991,
-	0.241971 };
-	G4double Scnt_SLOW[NUMENTRIES] = { 0.000010, 0.000020, 0.000030, 0.004000,
-	0.008000, 0.005000, 0.020000, 0.001000,
-	0.000010 };
+	const G4int NUMENTRIES = 13;
+	G4double Scnt_PP[NUMENTRIES] = { 2.39*eV, 2.43*eV, 2.48*eV, 2.53*eV, 2.58*eV, 2.64*eV, 2.70*eV, 2.76*eV, 2.82*eV, 2.89*eV, 2.95*eV, 3.03*eV, 3.10*eV};
+	G4double Scnt_FAST[NUMENTRIES] = {0.02, 0.05, 0.10, 0.20, 0.35, 0.50, 0.65, 0.85, 1.00, 0.85, 0.65, 0.35, 0.10};
+	//G4double Scnt_SLOW[NUMENTRIES] = { 0.000010, 0.000020, 0.000030, 0.004000,
+	//0.008000, 0.005000, 0.020000, 0.001000,
+	//0.000010 };
 	MPT->AddProperty("SCINTILLATIONCOMPONENT1", Scnt_PP, Scnt_FAST, NUMENTRIES);
-	MPT->AddProperty("SCINTILLATIONCOMPONENT2", Scnt_PP, Scnt_SLOW, NUMENTRIES);
+	//MPT->AddProperty("SCINTILLATIONCOMPONENT2", Scnt_PP, Scnt_SLOW, NUMENTRIES);
 	MPT->AddConstProperty("RESOLUTIONSCALE", 2.0);
-	MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 1.*ns);
-	MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT2", 10.*ns);
-	MPT->AddConstProperty("SCINTILLATIONYIELD1", 0.8);
+	MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 3.3*ns); // Rise time constant???
+	//MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT2", 10.*ns);
+	MPT->AddConstProperty("SCINTILLATIONYIELD1", 9200/MeV);
 	scintillator->SetMaterialPropertiesTable(MPT);
 
 	// Target material: lead
