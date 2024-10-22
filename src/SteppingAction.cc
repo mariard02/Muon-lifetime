@@ -11,7 +11,7 @@
 SteppingAction::SteppingAction()
 {
 	// Open a file to save the energies of the photons
-	_StepOutputFile1.open("./output/step_output_Scintillator1.txt", std::ios::app);
+	_StepOutputFile1.open("./output/step_output_Scintillator1.txt", std::ofstream::out | std::ofstream::trunc);
 	if (!_StepOutputFile1.is_open()) {
         G4cerr << "Error: No se pudo abrir el archivo para guardar datos de los fotones.\n";
     } else {
