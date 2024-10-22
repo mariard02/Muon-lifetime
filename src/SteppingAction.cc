@@ -15,7 +15,7 @@ SteppingAction::SteppingAction()
 	if (!_StepOutputFile1.is_open()) {
         G4cerr << "Error: No se pudo abrir el archivo para guardar datos de los fotones.\n";
     } else {
-        //_StepOutputFile1 << "Track_photon_ID\tEnergy_MeV\tWavelength_nm\tTime_ns\n";
+        _StepOutputFile1 << "Track_photon_ID\tEnergy_MeV\tWavelength_nm\tTime_ns\n";
         _StepOutputFile1.flush();  // Forzar la escritura al archivo
     }
 }
