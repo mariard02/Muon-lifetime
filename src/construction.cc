@@ -13,6 +13,10 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	// World material: air
 	G4Material* worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
 
+	G4MaterialPropertiesTable* MPT_air = new G4MaterialPropertiesTable();
+	MPT_air->AddConstProperty("RINDEX", 1., true);
+	worldMaterial->SetMaterialPropertiesTable(MPT_air);
+
 	// Scintillator material: NaI Scintillator
 	G4String symbol;
 	G4double density, fractionmass;
@@ -48,12 +52,9 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	//G4double Scnt_SLOW[NUMENTRIES] = { 0.000010, 0.000020, 0.000030, 0.004000,
 	//0.008000, 0.005000, 0.020000, 0.001000,
 	//0.000010 };
-	MPT->AddProperty("SCINTILLATIONCOMPONENT1", Scnt_PP, Scnt_FAST, NUMENTRIES);
-	//MPT->AddProperty("SCINTILLATIONCOMPONENT2", Scnt_PP, Scnt_SLOW, NUMENTRIES);
+	MPT->AddProperty("SCINTILLATIONCOMPONENT1", Scnt_PP, Scnt_FAST, NUMENTRIES); // We only consider the fast component
 	MPT->AddConstProperty("RESOLUTIONSCALE", 2.0);
-	MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 3.3*ns); // Rise time constant???
-	//MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT2", 10.*ns);
-	MPT->AddConstProperty("SCINTILLATIONYIELD1", 9200/MeV);
+	MPT->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 3.3*ns); 
 	scintillator->SetMaterialPropertiesTable(MPT);
 
 	// Target material: lead
