@@ -1,1 +1,3 @@
 # Muon_lifetime
+
+This project simulates the passage of a muon through a setup consisting of two scintillators, lead shielding, and two additional scintillators. The simulation is developed using the Geant4 toolkit, which is widely used for simulating the interaction of particles with matter in high-energy physics experiments. It is being developed for the subject "Laboratory IV", taught in the MSc in Physics at Université de Genève.
