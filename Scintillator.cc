@@ -9,8 +9,8 @@
 #include "construction.hh"
 #include "physics.hh"
 #include "action.hh"
-#include "RunAction.hh"
-#include "SteppingAction.hh"
+//#include "RunAction.hh"
+//#include "SteppingAction.hh"
 
 
 int main(int argc, char** argv){
@@ -20,13 +20,13 @@ int main(int argc, char** argv){
 	runManager->SetUserInitialization(new MyDetectorConstruction());
 	runManager->SetUserInitialization(new MyPhysicsList());
 	runManager->SetUserInitialization(new MyactionInitialization());
-	runManager->SetUserAction(new RunAction());
+	//runManager->SetUserAction(new RunAction());
 
 	//RunAction* runAction = new RunAction;
 	//runManager->SetUserInitialization(new runAction());
 
-	SteppingAction* steppingAction = new SteppingAction();
-  	runManager->SetUserAction(steppingAction);
+	//SteppingAction* steppingAction = new SteppingAction();
+  	//runManager->SetUserAction(steppingAction);
   	
   	runManager->Initialize();
 

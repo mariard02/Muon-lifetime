@@ -8,25 +8,22 @@ MySensitiveDetector::~MySensitiveDetector()
 
 G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhist)
 {
-	G4Track *track = aStep->GetTrack();
+    G4Track *track = aStep->GetTrack();
 
-	track->SetTrackStatus(fStopAndKill);
+    // Detener el seguimiento del fotón después de este paso
+    track->SetTrackStatus(fStopAndKill);
 
-	G4StepPoint *preStepPoint = aStep->GetPreStepPoint();
-	G4StepPoint *postStepPoint = aStep->GetPostStepPoint();
+    // Obtener los puntos de pre-paso y post-paso
+    G4StepPoint *preStepPoint = aStep->GetPreStepPoint();
+    G4StepPoint *postStepPoint = aStep->GetPostStepPoint();
 
-	G4ThreeVector posPhoton = preStepPoint->GetPosition();
+    // Obtener la posición del fotón
+    G4ThreeVector posPhoton = preStepPoint->GetPosition();
+    
+    // Obtener la energía cinética del fotón
+    G4double photonEnergy = preStepPoint->GetKineticEnergy();
 
-	//G4cout << "PhotonPosition: " << posPhoton << G4endl;
+    G4cout << "Photon energy: " << photonEnergy / CLHEP::eV << " eV" << G4endl;
 
-	const G4VTouchable *touchable = aStep->GetPreStepPoint()->GetTouchable();
-
-	G4int copyNo = touchable->GetCopyNumber();
-
-	//G4cout << "Copy number: " << copyNo << G4endl;
-
-	G4VPhysicalVolume *physVol = touchable->GetVolume();
-	G4ThreeVector posDetector = physVol -> GetTranslation();
-
-	G4cout << "Detector position: " << posDetector << G4endl;
+    return true;
 }

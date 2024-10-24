@@ -140,9 +140,48 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     // CREATE THE FIBER
     G4double FiberBoxSizeXY = 0.5 * m;
     G4double FiberBoxSizeZ = 0.5 * m;
-    G4Box* solidFiberBox = new G4Box("solidLeadBox", FiberBoxSizeXY/2, FiberBoxSizeXY/2, FiberBoxSizeZ/2);
+    G4Box* solidFiberBox = new G4Box("solidFiberBox", FiberBoxSizeXY/2, FiberBoxSizeXY/2, FiberBoxSizeZ/2);
 	G4LogicalVolume *logicFiber = new G4LogicalVolume(solidFiberBox, polystyrene_fibre, "logicFiber");
     G4VPhysicalVolume *physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 1.*m), logicFiber, "physFiber", logicworld, false, 0., true);
 
+    // DETECTOR
+    G4Material *SiO2 = new G4Material("SiO2", 2.201*g/cm3, 2);
+	SiO2->AddElement(nist->FindOrBuildElement("Si"), 1);
+	SiO2->AddElement(nist->FindOrBuildElement("O"), 2);
+
+	G4Material *H20 = new G4Material("H20", 1.000*g/cm3, 2);
+	H20->AddElement(nist->FindOrBuildElement("H"), 2);
+	H20->AddElement(nist->FindOrBuildElement("O"), 1);
+
+	//G4Element *C = nist->FindOrBuildElement("C");
+
+	G4Material *Aerogel = new G4Material("Aerogel", 0.200*g/cm3, 3);
+	Aerogel->AddMaterial(SiO2, 62.5*perCent);
+	Aerogel->AddMaterial(H20, 37.4*perCent);
+	Aerogel->AddElement(C, 0.1*perCent);
+
+	G4double energies[2] = {1.239841939*eV/0.9, 1.239841939*eV/0.2};
+	G4double rindexAerogel[2] = {1.1, 1.1};
+
+	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
+	mptAerogel->AddProperty("RINDEX", energies, rindexAerogel, 2);
+
+	Aerogel->SetMaterialPropertiesTable(mptAerogel); 
+
+	// Create the detector
+	G4double DetectorBoxSizeXY = 0.5 * m;
+    G4double DetectorBoxSizeZ = 0.5 * m;
+
+    G4Box* solidDetector = new G4Box("solidDetector", DetectorBoxSizeXY/2, DetectorBoxSizeXY/2, DetectorBoxSizeZ/2);
+	logicDetector = new G4LogicalVolume(solidDetector, Aerogel, "logicDetector");
+    G4VPhysicalVolume *physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 1.*m), logicDetector, "physDetector", logicworld, false, 0., true);
+
     return physworld;
+}
+
+void MyDetectorConstruction::ConstructSDandField()
+{
+	MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
+
+	logicDetector->SetSensitiveDetector(sensDet);
 }
