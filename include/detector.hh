@@ -11,6 +11,7 @@ public:
 
 private:
 	virtual G4bool ProcessHits(G4Step *, G4TouchableHistory *);
+	std::ofstream OutputFile;
 };
 
 #endif
