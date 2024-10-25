@@ -6,7 +6,7 @@ MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(n
     // In the case the file doesn't exist, we create it. If it exists, we overwrite it.
     // We have to open the file in the constructor. Otherwise, there will be no output.
     OutputFile.open("./output/step_output_Scintillator.txt", std::ofstream::out | std::ofstream::trunc);
-    OutputFile << "Energy (eV)\n";
+    OutputFile << "Energy (eV)\tTime (ns)\n";
     OutputFile.flush();
 }
 
@@ -31,7 +31,9 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     // Obtener la energía cinética del fotón
     G4double photonEnergy = preStepPoint->GetKineticEnergy();
 
-    OutputFile << photonEnergy/ CLHEP::eV << "\n";
+    G4double photonTime = preStepPoint->GetGlobalTime();
+
+    OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime << "\n";
 
     //G4cout << "Photon energy: " << photonEnergy / CLHEP::eV << " eV" << G4endl;
 
