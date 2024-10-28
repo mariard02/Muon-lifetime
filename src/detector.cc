@@ -60,10 +60,10 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
 
     G4double photonTime = preStepPoint->GetGlobalTime();
 
-    if (G4UniformRand() < quEff -> Value(photonEnergy/ CLHEP::eV)){
-        OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime << "\n";
-    }
-    //G4cout << "Photon energy: " << photonEnergy / CLHEP::eV << " eV" << G4endl;
+    //if (G4UniformRand() < quEff -> Value(photonEnergy/ CLHEP::eV)){
+    //    OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime << "\n";
+    //}
+    OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime << "\n";
 
     return true;
 }
