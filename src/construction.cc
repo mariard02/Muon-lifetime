@@ -14,7 +14,10 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	G4Material* worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
 
 	G4MaterialPropertiesTable* MPT_air = new G4MaterialPropertiesTable();
-	MPT_air->AddConstProperty("RINDEX", 1., true);
+	std::vector<G4double> energyAir     = {2.034*eV, 3.*eV, 4.136*eV};
+	std::vector<G4double> rindexAir     = {1., 1., 1.};
+	MPT_air ->AddProperty("RINDEX", energyAir, rindexAir);
+	//MPT_air->AddConstProperty("RINDEX", 1., true);
 	worldMaterial->SetMaterialPropertiesTable(MPT_air);
 
 	// Scintillator material: NaI Scintillator
@@ -135,11 +138,16 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     opAirScintillator -> SetType(dielectric_dielectric);
     opAirScintillator -> SetFinish(ground);
     opAirScintillator -> SetModel(glisur);
-    opAirScintillator -> SetPolish(0.8);
+    opAirScintillator -> SetPolish(1.0);
 
     G4MaterialPropertiesTable* OpSurfaceProperty = new G4MaterialPropertiesTable();
 
-    OpSurfaceProperty -> AddConstProperty("REFLECTIVITY", 0.8, true);
+    std::vector<G4double> pp = {2.038*eV, 4.144*eV};
+    std::vector<G4double> reflectivity = {1., 1.};
+    std::vector<G4double> efficiency = {1., 1.};
+
+    OpSurfaceProperty -> AddProperty("REFLECTIVITY", pp, reflectivity);
+    OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
 
     opAirScintillator -> SetMaterialPropertiesTable(OpSurfaceProperty);
 
@@ -166,11 +174,12 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     opAirScintillator -> SetType(dielectric_dielectric);
     opAirScintillator -> SetFinish(ground);
     opAirScintillator -> SetModel(glisur);
-    opAirScintillator -> SetPolish(0.8);
+    opAirScintillator -> SetPolish(1.0);
 
     G4MaterialPropertiesTable* OpSurfacePropertyFiber = new G4MaterialPropertiesTable();
 
-    OpSurfacePropertyFiber -> AddConstProperty("REFLECTIVITY", 0.8, true);
+    OpSurfacePropertyFiber -> AddProperty("REFLECTIVITY", pp, reflectivity);
+    OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
 
     opAirFiber -> SetMaterialPropertiesTable(OpSurfacePropertyFiber);
 
@@ -184,8 +193,6 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	G4Material *H20 = new G4Material("H20", 1.000*g/cm3, 2);
 	H20->AddElement(nist->FindOrBuildElement("H"), 2);
 	H20->AddElement(nist->FindOrBuildElement("O"), 1);
-
-	//G4Element *C = nist->FindOrBuildElement("C");
 
 	G4Material *Aerogel = new G4Material("Aerogel", 0.200*g/cm3, 3);
 	Aerogel->AddMaterial(SiO2, 62.5*perCent);
