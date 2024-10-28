@@ -130,6 +130,21 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     G4LogicalVolume *logicScin = new G4LogicalVolume(solidScinBox, scintillator, "logicScin");
     G4VPhysicalVolume *physScin  = new G4PVPlacement(0, G4ThreeVector(0., 0., 1.*m), logicScin, "physScin", logicworld, false, 0., true);
 
+    // Optical surface: mirror between the scintillator and the air.
+    G4OpticalSurface* opAirScintillator = new G4OpticalSurface("AirScintillator");
+    opAirScintillator -> SetType(dielectric_dielectric);
+    opAirScintillator -> SetFinish(ground);
+    opAirScintillator -> SetModel(glisur);
+    opAirScintillator -> SetPolish(0.8);
+
+    G4MaterialPropertiesTable* OpSurfaceProperty = new G4MaterialPropertiesTable();
+
+    OpSurfaceProperty -> AddConstProperty("REFLECTIVITY", 0.8, true);
+
+    opAirScintillator -> SetMaterialPropertiesTable(OpSurfaceProperty);
+
+    G4LogicalBorderSurface* AirScintillator = new G4LogicalBorderSurface("AirScintillator", physworld, physScin ,opAirScintillator);
+
     // CREATE THE LEAD
     G4double LeadBoxSizeXY = 2. * m;
 	G4double LeadBoxSizeZ = 3. * m; // Depth of the box in Z direction

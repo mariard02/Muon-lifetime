@@ -1018,6 +1018,14 @@ CMakeFiles/ScintillatorSim.dir/src/construction.cc.o: \
   /usr/local/include/Geant4/G4NistElementBuilder.hh \
   /usr/local/include/Geant4/G4NistMaterialBuilder.hh \
   /usr/local/include/Geant4/G4Pow.hh /usr/local/include/Geant4/G4Exp.hh \
+  /usr/local/include/Geant4/G4OpticalSurface.hh \
+  /usr/local/include/Geant4/G4Physics2DVector.hh \
+  /usr/local/include/Geant4/G4Physics2DVector.icc \
+  /usr/local/include/Geant4/G4SurfaceProperty.hh \
+  /usr/local/include/Geant4/G4LogicalBorderSurface.hh \
+  /usr/local/include/Geant4/G4LogicalSurface.hh \
+  /usr/local/include/Geant4/G4LogicalSurface.icc \
+  /usr/local/include/Geant4/G4LogicalBorderSurface.icc \
   /usr/local/include/Geant4/G4SystemOfUnits.hh \
   /Users/maria/Desktop/Máster/M1/S1/Labo\ IV/Muon_lifetime/include/detector.hh \
   /usr/local/include/Geant4/G4VSensitiveDetector.hh \

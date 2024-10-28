@@ -7,6 +7,8 @@
 #include "G4Box.hh"
 #include "G4PVPlacement.hh"
 #include "G4NistManager.hh"
+#include "G4OpticalSurface.hh"
+#include "G4LogicalBorderSurface.hh"
 
 #include "G4SystemOfUnits.hh"
 

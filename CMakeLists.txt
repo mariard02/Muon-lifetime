@@ -14,6 +14,12 @@ include_directories(${PROJECT_SOURCE_DIR}/include
 # Add the executable             
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+file(GLOB data ${PROJECT_SOURCE_DIR}/data/*.dat)
+
+foreach(_data_file ${data})
+  file(COPY ${_data_file} DESTINATION ${PROJECT_BINARY_DIR})
+endforeach()
+
 add_executable(ScintillatorSim Scintillator.cc ${sources} ${headers})
 
 # Link the executable with Geant4 libraries
