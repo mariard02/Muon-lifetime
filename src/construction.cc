@@ -135,23 +135,28 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     // Optical surface: mirror between the scintillator and the air.
     G4OpticalSurface* opAirScintillator = new G4OpticalSurface("AirScintillator");
-    opAirScintillator -> SetType(dielectric_dielectric);
+    opAirScintillator -> SetType(dielectric_metal);
     opAirScintillator -> SetFinish(ground);
-    opAirScintillator -> SetModel(glisur);
-    opAirScintillator -> SetPolish(1.0);
+    opAirScintillator -> SetModel(unified);
+    opAirScintillator -> SetPolish(0.8);
 
     G4MaterialPropertiesTable* OpSurfaceProperty = new G4MaterialPropertiesTable();
 
     std::vector<G4double> pp = {2.038*eV, 4.144*eV};
     std::vector<G4double> reflectivity = {1., 1.};
-    std::vector<G4double> efficiency = {1., 1.};
+    std::vector<G4double> transmittance = {0., 0.};
+    //std::vector<G4double> efficiency = {0.1, 0.1};
 
     OpSurfaceProperty -> AddProperty("REFLECTIVITY", pp, reflectivity);
-    OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
+    OpSurfaceProperty->AddProperty("TRANSMITTANCE", pp, transmittance);
+    //OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
 
     opAirScintillator -> SetMaterialPropertiesTable(OpSurfaceProperty);
 
-    G4LogicalBorderSurface* AirScintillator = new G4LogicalBorderSurface("AirScintillator", physworld, physScin ,opAirScintillator);
+    //G4LogicalSkinSurface* airScintillator =
+		//new G4LogicalSkinSurface("AirScintillator", logicScin, opAirScintillator);
+
+    G4LogicalBorderSurface* AirScintillator = new G4LogicalBorderSurface("AirScintillator", physScin, physworld, opAirScintillator);
 
 
     // CREATE THE LEAD
@@ -171,19 +176,20 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     // Optical surface: mirror between the fiber and the air
 
     G4OpticalSurface* opAirFiber = new G4OpticalSurface("AirFiber");
-    opAirScintillator -> SetType(dielectric_dielectric);
-    opAirScintillator -> SetFinish(ground);
-    opAirScintillator -> SetModel(glisur);
-    opAirScintillator -> SetPolish(1.0);
+    opAirFiber -> SetType(dielectric_metal);
+    opAirFiber -> SetFinish(polished);
+    opAirFiber -> SetModel(glisur);
+    opAirFiber -> SetPolish(0.8);
 
     G4MaterialPropertiesTable* OpSurfacePropertyFiber = new G4MaterialPropertiesTable();
 
     OpSurfacePropertyFiber -> AddProperty("REFLECTIVITY", pp, reflectivity);
-    OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
+    OpSurfacePropertyFiber -> AddProperty("TRANSMITTANCE", pp, transmittance);
+    //OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
 
     opAirFiber -> SetMaterialPropertiesTable(OpSurfacePropertyFiber);
 
-    G4LogicalBorderSurface* AirFiber = new G4LogicalBorderSurface("AirFiber", physworld, physFiber, opAirFiber);
+    G4LogicalBorderSurface* AirFiber = new G4LogicalBorderSurface("AirFiber", physFiber, physworld, opAirFiber);
 
     // DETECTOR
     G4Material *SiO2 = new G4Material("SiO2", 2.201*g/cm3, 2);
@@ -214,6 +220,22 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     G4Box* solidDetector = new G4Box("solidDetector", DetectorBoxSizeXY/2, DetectorBoxSizeXY/2, DetectorBoxSizeZ/2);
 	logicDetector = new G4LogicalVolume(solidDetector, Aerogel, "logicDetector");
     G4VPhysicalVolume *physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 1.*m), logicDetector, "physDetector", logicworld, false, 0., true);
+    
+    G4OpticalSurface* opAirDetector = new G4OpticalSurface("AirDetector");
+    opAirDetector -> SetType(dielectric_metal);
+    opAirDetector -> SetFinish(polished);
+    opAirDetector -> SetModel(glisur);
+    opAirDetector -> SetPolish(0.8);
+
+    G4MaterialPropertiesTable* OpSurfacePropertyDetector = new G4MaterialPropertiesTable();
+
+    OpSurfacePropertyDetector -> AddProperty("REFLECTIVITY", pp, reflectivity);
+    OpSurfacePropertyDetector -> AddProperty("TRANSMITTANCE", pp, transmittance);
+    //OpSurfaceProperty -> AddProperty("EFFICIENCY", pp, efficiency);
+
+    opAirDetector -> SetMaterialPropertiesTable(OpSurfacePropertyDetector);
+
+    G4LogicalBorderSurface* AirDetector = new G4LogicalBorderSurface("AirDetector", physDetector, physworld, opAirDetector);
 
     return physworld;
 }
