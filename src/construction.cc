@@ -145,6 +145,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     G4LogicalBorderSurface* AirScintillator = new G4LogicalBorderSurface("AirScintillator", physworld, physScin ,opAirScintillator);
 
+
     // CREATE THE LEAD
     G4double LeadBoxSizeXY = 2. * m;
 	G4double LeadBoxSizeZ = 3. * m; // Depth of the box in Z direction
@@ -158,6 +159,22 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     G4Box* solidFiberBox = new G4Box("solidFiberBox", FiberBoxSizeXY/2, FiberBoxSizeXY/2, FiberBoxSizeZ/2);
 	G4LogicalVolume *logicFiber = new G4LogicalVolume(solidFiberBox, polystyrene_fibre, "logicFiber");
     G4VPhysicalVolume *physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 1.*m), logicFiber, "physFiber", logicworld, false, 0., true);
+
+    // Optical surface: mirror between the fiber and the air
+
+    G4OpticalSurface* opAirFiber = new G4OpticalSurface("AirFiber");
+    opAirScintillator -> SetType(dielectric_dielectric);
+    opAirScintillator -> SetFinish(ground);
+    opAirScintillator -> SetModel(glisur);
+    opAirScintillator -> SetPolish(0.8);
+
+    G4MaterialPropertiesTable* OpSurfacePropertyFiber = new G4MaterialPropertiesTable();
+
+    OpSurfacePropertyFiber -> AddConstProperty("REFLECTIVITY", 0.8, true);
+
+    opAirFiber -> SetMaterialPropertiesTable(OpSurfacePropertyFiber);
+
+    G4LogicalBorderSurface* AirFiber = new G4LogicalBorderSurface("AirFiber", physworld, physFiber, opAirFiber);
 
     // DETECTOR
     G4Material *SiO2 = new G4Material("SiO2", 2.201*g/cm3, 2);
