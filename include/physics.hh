@@ -7,6 +7,8 @@
 #include "G4DecayPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 #include "G4HadronPhysicsFTFP_BERT.hh"
+#include "G4VModularPhysicsList.hh"
+#include "G4HadronPhysicsQGSP_BERT.hh"
 
 
 class MyPhysicsList : public G4VModularPhysicsList

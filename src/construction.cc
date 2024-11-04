@@ -42,7 +42,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	G4MaterialPropertiesTable* MPT = new G4MaterialPropertiesTable();
 	
 	// property independent of energy
-	MPT->AddConstProperty("SCINTILLATIONYIELD", 9200./MeV);
+	MPT->AddConstProperty("SCINTILLATIONYIELD", 0.1/MeV);
 	
 	// properties that depend on energy
 	MPT->AddProperty("RINDEX", energy, rindex);
@@ -61,6 +61,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	//G4Material* Lead = nist->FindOrBuildMaterial("G4_Pb");
 	//G4Material* Lead= new G4Material("Lead", 82., 207.2 *g/mole, 11.35);
 	G4Material* Lead = new G4Material("Lead", 82, 207.2 * g/mole, 11.35 * g/cm3);
+	G4Material* Iron = new G4Material("Iron", 26, 55.847 * g/mole, 7.874 * g/cm3);
 
 
 	// Material for the optical fiber
@@ -166,7 +167,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     G4double LeadBoxSizeXY = 2. * m;
 	G4double LeadBoxSizeZ = 0.75 * m; // Depth of the box in Z direction
 	G4Box* solidLeadBox = new G4Box("solidLeadBox", LeadBoxSizeXY/2, LeadBoxSizeXY/2, LeadBoxSizeZ/2);
-	G4LogicalVolume *logicLead = new G4LogicalVolume(solidLeadBox, Lead, "logicLead");
+	G4LogicalVolume *logicLead = new G4LogicalVolume(solidLeadBox, Iron, "logicLead");
     G4VPhysicalVolume *physLead  = new G4PVPlacement(0, G4ThreeVector(0., 0., 3.*m), logicLead, "physLead", logicworld, false, 0., true);
 
     // CREATE THE FIBER

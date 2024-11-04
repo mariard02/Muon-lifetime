@@ -17,7 +17,7 @@ public:
     void AddTotalEnergyDeposit(G4double energy);
     
 private:
-    std::ofstream _RunOutputFile;
+    std::ofstream RunOutputFile;
     
     G4double _TotalEnergyDeposit;
 };

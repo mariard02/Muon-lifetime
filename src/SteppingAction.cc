@@ -11,13 +11,8 @@
 SteppingAction::SteppingAction()
 {
 	// Open a file to save the energies of the photons
-	_StepOutputFile1.open("./output/step_output_Scintillator1.txt", std::ofstream::out | std::ofstream::trunc);
-	if (!_StepOutputFile1.is_open()) {
-        G4cerr << "Error: No se pudo abrir el archivo para guardar datos de los fotones.\n";
-    } else {
-        _StepOutputFile1 << "Track_photon_ID\tEnergy_MeV\tWavelength_nm\tTime_ns\n";
-        _StepOutputFile1.flush();  // Forzar la escritura al archivo
-    }
+	_StepOutputFile1.open("./output/electrons_in_LogicLead.txt", std::ofstream::out | std::ofstream::trunc);
+    
 }
 
 // Create destructor
@@ -28,33 +23,50 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 {
 	// Define what we do at each step
 	auto track = step->GetTrack();
+
+    //track->SetTrackStatus(fStopAndKill);
+
     auto particle = track->GetParticleDefinition();
     auto volume = track->GetVolume();
+    G4StepPoint *preStepPoint = step->GetPreStepPoint();
+    G4StepPoint *postStepPoint = step->GetPostStepPoint();
 
-    // Save the data from the photons
-    if (volume -> GetName() == "physScin") {
-	    if (particle == G4OpticalPhoton::OpticalPhotonDefinition()) {
+    if (track->GetDefinition()->GetParticleName() == "mu-"){
+        _StepOutputFile1 << preStepPoint->GetPhysicalVolume()->GetName() << "\n";
+    }
 
-	        G4String creatorProcess = track->GetCreatorProcess()->GetProcessName();
-	        
-	        SavePhotonData(step, creatorProcess);
-	    }
+        // Comprobamos si se ha creado un electrón en LogicLead
+    if (track->GetDefinition()->GetParticleName() == "mu-" &&
+        preStepPoint->GetPhysicalVolume()->GetName() == "physLead") {
+        // Abrir archivo para electrones en LogicLead
+        if (_StepOutputFile1.is_open()) {
+            G4double electronEnergy = track->GetKineticEnergy();
+            G4double electronTime = track->GetGlobalTime();
+            _StepOutputFile1 << "Energy (eV): " << electronEnergy / CLHEP::eV
+                         << "\tTime (ns): " << electronTime << "\n";
+
+            _StepOutputFile1.flush();
+            //_StepOutputFile1 << "There is a muon\n"; 
+        }
+    } else {
+        _StepOutputFile1 << "No electrons in this run \n";
+        _StepOutputFile1.flush();
     }
 }
 
 void SteppingAction::SavePhotonData(const G4Step* step, G4String ProcessName){
 	auto track = step->GetTrack();
-    G4double energy = track->GetKineticEnergy();
-    G4double wavelength = (CLHEP::twopi * CLHEP::hbarc) / (energy / MeV);  // Wavelength in nm
-    G4double time = track->GetGlobalTime();
-    G4int trackID = track->GetTrackID();
+    //G4double energy = track->GetKineticEnergy();
+    //G4double wavelength = (CLHEP::twopi * CLHEP::hbarc) / (energy / MeV);  // Wavelength in nm
+    //G4double time = track->GetGlobalTime();
+    //G4int trackID = track->GetTrackID();
 
     //_StepOutputFile1 << trackID << "\t" << energy / eV  << "\t" << wavelength / nm << "\t" << time << "\n";
 
     // Check if it was created through scintillation
-    if (ProcessName == "Scintillation") {
-    		_StepOutputFile1 << trackID << "\t" << energy / eV  << "\t" << wavelength / nm << "\t" << time << "\n";
+    //if (ProcessName == "Scintillation") {
+    		//_StepOutputFile1 << trackID << "\t" << energy / eV  << "\t" << wavelength / nm << "\t" << time << "\n";
     		
-		}
+		//}
 }
 
