@@ -16,6 +16,8 @@ private:
 	std::ofstream OutputFile;
 	std::ofstream newFile;
 
+	G4int eventID;
+
 	G4PhysicsFreeVector *quEff;
 
 };

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
@@ -9,8 +11,11 @@
 #include "construction.hh"
 #include "physics.hh"
 #include "action.hh"
-//#include "RunAction.hh"
-//#include "SteppingAction.hh"
+#include "detector.hh"
+
+#include "RunAction.hh"
+#include "SteppingAction.hh"
+#include "EventAction.hh"
 
 
 int main(int argc, char** argv){
@@ -20,22 +25,28 @@ int main(int argc, char** argv){
 	runManager->SetUserInitialization(new MyDetectorConstruction());
 	runManager->SetUserInitialization(new MyPhysicsList());
 	runManager->SetUserInitialization(new MyactionInitialization());
-	//runManager->SetUserAction(new RunAction());
 
-	//RunAction* runAction = new RunAction;
-	//runManager->SetUserInitialization(new runAction());
+    // Aquí es donde debes crear el objeto de RunAction y establecerlo
+    RunAction* runAction = new RunAction();
+    runManager->SetUserAction(runAction);
+    
+	SteppingAction* steppingAction = new SteppingAction();
+	EventAction* eventAction = new EventAction(steppingAction);
 
-	//SteppingAction* steppingAction = new SteppingAction();
-  	//runManager->SetUserAction(steppingAction);
+	runManager->SetUserAction(eventAction);
+  	runManager->SetUserAction(steppingAction);
   	
   	runManager->Initialize();
 
 	G4UIExecutive *ui = new G4UIExecutive(argc, argv);
 
-	G4VisManager *visManager = new G4VisExecutive();
-	visManager->Initialize();
+	//G4VisManager *visManager = new G4VisExecutive();
+	//visManager->Initialize();
 
-	//G4UImanager *UImanager = G4UImanager::GetUIpointer();
+	G4UImanager *UImanager = G4UImanager::GetUIpointer();
+
+	//RunOutputFile.open("./output/step_output_PMT.txt", std::ofstream::out | std::ofstream::trunc);
+	//RunOutputFile << "Energy (eV)\tTime (ns)\tRun\n";
 
 	//UImanager->ApplyCommand("/vis/open OGL");
 	//UImanager->ApplyCommand("/vis/view/set/viewpointVector 1 1 1");
@@ -45,7 +56,13 @@ int main(int argc, char** argv){
 	//UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
 	//UImanager->ApplyCommand("/vis/scene/endOfEventAction accumulate");
 
-	ui->SessionStart();
+	UImanager->ApplyCommand("/run/beamOn 2");
+
+	//ui->SessionStart();
+
+	G4cout << "The simulation has finished. \n";
+
+	delete runManager;
 
 	return 0;
 }

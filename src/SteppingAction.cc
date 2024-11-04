@@ -38,7 +38,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
             G4double electronEnergy = track->GetKineticEnergy();
             G4double electronTime = track->GetGlobalTime();
             
-            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << trackID << "\n";
+            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << eventID << "\n";
 
             _StepOutputFile1.flush();
 
