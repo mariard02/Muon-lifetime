@@ -31,6 +31,6 @@ void RunAction::AddTotalEnergyDeposit(G4double energy) {
 // At the end of the run, we write in the output file the total energy deposit that we have preoviously calculated
 void RunAction::EndOfRunAction(const G4Run* run)
 {
-	 RunOutputFile << "Total energy deposit: " << _TotalEnergyDeposit / MeV << " MeV \n";
+	 RunOutputFile.close();
 }
 

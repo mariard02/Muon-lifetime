@@ -66,9 +66,9 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
         G4double photonEnergy = preStepPoint->GetKineticEnergy();
         G4double photonTime = preStepPoint->GetGlobalTime();
 
-        G4cout << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
+        //G4cout << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
 
-        OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
+        //OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
 
         //newFile << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
     }
