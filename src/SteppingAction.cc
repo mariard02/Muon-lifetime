@@ -38,7 +38,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
             G4double electronEnergy = track->GetKineticEnergy();
             G4double electronTime = track->GetGlobalTime();
             
-            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << eventID << "\n";
+            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << eventID << "\t" << trackID << "\n";
 
             _StepOutputFile1.flush();
 
@@ -47,26 +47,4 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     } 
 }
 
-void SteppingAction::SavePhotonData(const G4Step* step, G4String ProcessName){
-	//auto track = step->GetTrack();
-    //G4StepPoint *preStepPoint = step->GetPreStepPoint();
-    //G4StepPoint *postStepPoint = step->GetPostStepPoint();
-    //if (preStepPoint->GetPhysicalVolume()->GetName() == "physDetector") {
-       // G4double energy = track->GetKineticEnergy();
-      //  G4double time = track->GetGlobalTime();
-    //}
-    //G4double energy = track->GetKineticEnergy();
-    //G4double wavelength = (CLHEP::twopi * CLHEP::hbarc) / (energy / MeV);  // Wavelength in nm
-    //G4double time = track->GetGlobalTime();
-    //G4int trackID = track->GetTrackID();
-    
-
-    //_StepOutputFile1 << trackID << "\t" << energy / eV  << "\t" << wavelength / nm << "\t" << time << "\n";
-
-    // Check if it was created through scintillation
-    //if (ProcessName == "Scintillation") {
-    		//_StepOutputFile1 << trackID << "\t" << energy / eV  << "\t" << wavelength / nm << "\t" << time << "\n";
-    		
-		//}
-}
 

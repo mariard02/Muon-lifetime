@@ -7,24 +7,23 @@ MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(n
     // In the case the file doesn't exist, we create it. If it exists, we overwrite it.
     // We have to open the file in the constructor. Otherwise, there will be no output.
 
-    //newFile.open("./output/new_file.txt");
-
-    OutputFile.open("./output/PMT.txt", std::ofstream::out | std::ofstream::app);
+    //OutputFile.open("./output/PMT.txt", std::ofstream::out | std::ofstream::app);
     //OutputFile << "Energy (eV)\tTime (ns)\n";
     //OutputFile.flush();
 
+    // Vector to save the quantum efficiency
     quEff = new G4PhysicsFreeVector();
 
     std::ifstream datafile;
     datafile.open("../data/eff.dat");
 
     if (!datafile.is_open()) {
-    G4cerr << "Error: no se pudo abrir el archivo eff.dat" << G4endl;
+    G4cerr << "Error: the eff.dat file could not be opened." << G4endl;
     } else {
-        G4cout << "Archivo eff.dat abierto correctamente" << G4endl;
+        G4cout << "eff.dat file opened." << G4endl;
     }
 
-
+    // Save the quantum efficiency data in the quEff vector.
     while(1)
     {
         G4double en, queff;
@@ -33,8 +32,6 @@ MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(n
 
         if(datafile.eof())
             break;
-
-        G4cout << en << " " << queff << G4endl;
 
         quEff -> InsertValues(en, queff);
     }
@@ -63,15 +60,17 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     
     // Obtain the kinetic energy of the photon
     if (preStepPoint->GetKineticEnergy() && preStepPoint->GetGlobalTime()) {
+
         G4double photonEnergy = preStepPoint->GetKineticEnergy();
         G4double photonTime = preStepPoint->GetGlobalTime();
 
-        //G4cout << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
+        // SAVE THE DATA (now it is commented because I'm using SteppingAction to save it)
 
         //OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
 
-        //newFile << photonEnergy/ CLHEP::eV << "\t" << photonTime <<  "\n";
     }
+
+    // Implement quantum efficiency. It is commented because we want to do this in the data analysis.
     
     //if (G4UniformRand() < quEff -> Value(photonEnergy/ CLHEP::eV)){
     //    OutputFile << photonEnergy/ CLHEP::eV << "\t" << photonTime << "\n";

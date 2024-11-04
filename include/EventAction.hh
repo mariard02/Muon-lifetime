@@ -4,6 +4,7 @@
 #include "G4UserEventAction.hh"
 #include "G4Event.hh"
 #include "SteppingAction.hh"
+#include <string>
 
 class EventAction : public G4UserEventAction {
 public:
