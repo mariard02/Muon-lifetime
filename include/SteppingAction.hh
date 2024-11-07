@@ -14,8 +14,6 @@ public:
     void SetEventID(G4int id) { eventID = id; }
 
 private:
-    //void SaveMuonStepData(const G4Step* step);
-    void SavePhotonData(const G4Step* step, G4String ProcessName);
 
     std::ofstream _StepOutputFile1;
 

@@ -37,8 +37,9 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
             G4double electronEnergy = track->GetKineticEnergy();
             G4double electronTime = track->GetGlobalTime();
+            G4int detectorID = preStepPoint->GetTouchableHandle()->GetCopyNumber();
             
-            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << eventID << "\t" << trackID << "\n";
+            _StepOutputFile1 << electronEnergy / eV << "\t" << electronTime / ns << "\t" << detectorID << "\t" << eventID << "\t" << trackID << "\n";
 
             _StepOutputFile1.flush();
 
