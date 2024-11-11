@@ -126,7 +126,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	polystyrene_fibre->SetMaterialPropertiesTable(mptWLSfiber);
 
 	// CREATE THE WORLD
-	G4Box *solidworld = new G4Box("solidworld", 5.*m, 5.*m, 5.*m);
+	G4Box *solidworld = new G4Box("solidworld", 8.*m, 8.*m, 8.*m);
 	G4LogicalVolume *logicworld = new G4LogicalVolume(solidworld, worldMaterial, "logicWorld");
 	G4VPhysicalVolume *physworld  = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicworld, "physworld", 0, false, 0., true);
 
@@ -135,8 +135,10 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     G4double ScinBoxSizeZ  = 50.0 * cm;
     G4Box* solidScinBox = new G4Box("solidScinBox", 0.5*ScinBoxSizeXY, 0.5*ScinBoxSizeXY, 0.5*ScinBoxSizeZ);
     G4LogicalVolume *logicScin = new G4LogicalVolume(solidScinBox, scintillator, "logicScin");
-    G4VPhysicalVolume *physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 1.*m), logicScin, "physScin", logicworld, false, 0., true);
-	physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 1.5 * m), logicScin, "physScin", logicworld, false, 1., true);
+    G4VPhysicalVolume *physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.*m), logicScin, "physScin", logicworld, false, 0., true);
+	physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.5 * m), logicScin, "physScin", logicworld, false, 1., true);
+	physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 2.5 * m), logicScin, "physScin", logicworld, false, 2., true);
+	physScin = new G4PVPlacement(0, G4ThreeVector(0., 0., 3. * m), logicScin, "physScin", logicworld, false, 3., true);
 
     // Optical surface: mirror between the scintillator and the air.
     G4OpticalSurface* opAirScintillator = new G4OpticalSurface("AirScintillator");
@@ -166,18 +168,20 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     // CREATE THE LEAD
     G4double LeadBoxSizeXY = 2. * m;
-	G4double LeadBoxSizeZ = 0.75 * m; // Depth of the box in Z direction
+	G4double LeadBoxSizeZ = 0.5 * m; // Depth of the box in Z direction
 	G4Box* solidLeadBox = new G4Box("solidLeadBox", LeadBoxSizeXY/2, LeadBoxSizeXY/2, LeadBoxSizeZ/2);
 	G4LogicalVolume *logicLead = new G4LogicalVolume(solidLeadBox, Iron, "logicLead");
-    G4VPhysicalVolume *physLead  = new G4PVPlacement(0, G4ThreeVector(0., 0., 3.*m), logicLead, "physLead", logicworld, false, 0., true);
+    G4VPhysicalVolume *physLead  = new G4PVPlacement(0, G4ThreeVector(0., 0., 1.5*m), logicLead, "physLead", logicworld, false, 0., true);
 
     // CREATE THE FIBER
     G4double FiberBoxSizeXY = 0.5 * m;
     G4double FiberBoxSizeZ = 0.5 * m;
     G4Box* solidFiberBox = new G4Box("solidFiberBox", FiberBoxSizeXY/2, FiberBoxSizeXY/2, FiberBoxSizeZ/2);
 	G4LogicalVolume *logicFiber = new G4LogicalVolume(solidFiberBox, polystyrene_fibre, "logicFiber");
-    G4VPhysicalVolume *physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 1.*m), logicFiber, "physFiber", logicworld, false, 0., true);
-	physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 1.5*m), logicFiber, "physFiber", logicworld, false, 1., true);
+    G4VPhysicalVolume *physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 0.*m), logicFiber, "physFiber", logicworld, false, 0., true);
+	physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 0.5*m), logicFiber, "physFiber", logicworld, false, 1., true);
+	physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 2.5*m), logicFiber, "physFiber", logicworld, false, 2., true);
+	physFiber  = new G4PVPlacement(0, G4ThreeVector(0., 1.25*m, 3.*m), logicFiber, "physFiber", logicworld, false, 3., true);
 
     // Optical surface: mirror between the fiber and the air
 
@@ -225,8 +229,10 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     G4Box* solidDetector = new G4Box("solidDetector", DetectorBoxSizeXY/2, DetectorBoxSizeXY/2, DetectorBoxSizeZ/2);
 	logicDetector = new G4LogicalVolume(solidDetector, Aerogel, "logicDetector");
-    G4VPhysicalVolume *physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 1.*m), logicDetector, "physDetector", logicworld, false, 0, true);
-	physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 1.5*m), logicDetector, "physDetector", logicworld, false, 1, true);
+    G4VPhysicalVolume *physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 0.*m), logicDetector, "physDetector", logicworld, false, 0, true);
+	physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 0.5*m), logicDetector, "physDetector", logicworld, false, 1, true);
+	physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 2.5*m), logicDetector, "physDetector", logicworld, false, 2, true);
+	physDetector  = new G4PVPlacement(0, G4ThreeVector(0., 1.75*m, 3.*m), logicDetector, "physDetector", logicworld, false, 3, true);
     
     G4OpticalSurface* opAirDetector = new G4OpticalSurface("AirDetector");
     opAirDetector -> SetType(dielectric_metal);
