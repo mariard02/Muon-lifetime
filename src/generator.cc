@@ -16,7 +16,7 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 	G4ParticleTable *particleTable = G4ParticleTable::GetParticleTable();
 	G4ParticleDefinition *particle = particleTable->FindParticle("mu-");
 
-	G4ThreeVector pos(0., 0., -4.*m);
+	G4ThreeVector pos(0., 0., -5.*m);
 	G4ThreeVector mom(0., 0., 1.);
 
 	G4double E_min = 200. * MeV;

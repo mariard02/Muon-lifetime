@@ -6,7 +6,7 @@ RunAction::RunAction():
 		_TotalEnergyDeposit(0.)
 {
     RunOutputFile.open("./output/PMT.txt");
-    RunOutputFile << "Energy (eV) \t Time (ns) \t Detector ID \t Event ID \t Particle ID \n";
+    RunOutputFile << " Time (ns) \t Detector ID \t Particle ID \n";
     RunOutputFile.flush();
 
     CountOutputFile.open("./output/time.txt");

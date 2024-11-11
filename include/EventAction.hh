@@ -16,7 +16,7 @@ public:
 
 private:
     SteppingAction* fSteppingAction;
-    std::ofstream TotalEnergyFile;
+   // std::ofstream TotalEnergyFile;
 };
 
 #endif

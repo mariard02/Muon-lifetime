@@ -1,52 +1,32 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
-file = "../build/output/PMT.txt"
+class PMTSplit:
+    def __init__(self, file):
+        # Load data from the file
+        self.time, self.detector, self.event = np.loadtxt(file, usecols=[0, 1, 2], skiprows=1, unpack=True)
 
-energy, time, event, photon_ID = np.loadtxt(file, usecols=[0, 1, 2, 3], skiprows=1, unpack=True)
+        # Determine the number of events and detectors
+        self.number_of_events = int(np.max(self.event)) + 1
+        self.number_of_detectors = int(np.max(self.detector)) + 1
 
-# SEPARATE THE DATA FROM DIFFERENT EVENTS
+    def __str__(self):
+        # Return summary information about events and detectors
+        output = f'NUMBER OF EVENTS = {self.number_of_events}\n\n'
+        output += f'NUMBER OF SCINTILLATORS = {self.number_of_detectors}\n'
+        return output
 
-number_of_events = int(max(event)) + 1
+    def split(self):
+        # Create a list of lists for storing times per event and detector
+        time_split = [[[] for _ in range(self.number_of_detectors)] for _ in range(self.number_of_events)]
+        
+        # Populate time_split with times for each event and detector
+        for i in range(len(self.time)):
+            event_idx = int(self.event[i])
+            detector_idx = int(self.detector[i])
+            time_split[event_idx][detector_idx].append(self.time[i])
+        
+        return time_split
 
-time_split = [ [] for i in range(number_of_events) ]
-energy_split = [ [] for i in range(number_of_events) ]
-
-for i in range(len(time)):
-	time_split[int(event[i])].append(time[i])
-	energy_split[int(event[i])].append(energy[i])
-
-
-# Histogram of energy for separated events
-
-plt.figure()
-plt.title("Energy in each event")
-plt.xlabel("Energy (eV)")
-plt.ylabel("Number of photons")
-for i in range(number_of_events):
-	plt.hist(energy_split[i], 200)
-
-# Histogram of time for separated events
-plt.figure()
-plt.title("Time in each event")
-plt.xlabel("Time (ns)")
-plt.ylabel("Number of photons")
-for i in range(number_of_events):
-	plt.hist(time_split[i], 200)
-
-# Histogram of energy for all events
-plt.figure()
-plt.title("Energy in all events")
-plt.xlabel("Energy (eV)")
-plt.ylabel("Number of photons")
-plt.hist(energy, 200)
-
-
-# Histogram of time for all events
-plt.figure()
-plt.title("Time in all events")
-plt.xlabel("Time (ns)")
-plt.ylabel("Number of photons")
-plt.hist(time, 200)
-
-plt.show()
+    def event_detector(self, event_choice, scintillator_choice):
+        # Access times for a specific event and detector
+        return np.array(self.split()[event_choice][scintillator_choice])
