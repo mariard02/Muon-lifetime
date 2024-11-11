@@ -26,7 +26,6 @@ int main(int argc, char** argv){
 	runManager->SetUserInitialization(new MyPhysicsList());
 	runManager->SetUserInitialization(new MyactionInitialization());
 
-    // Aquí es donde debes crear el objeto de RunAction y establecerlo
     RunAction* runAction = new RunAction();
     runManager->SetUserAction(runAction);
     
@@ -48,7 +47,7 @@ int main(int argc, char** argv){
 	//RunOutputFile.open("./output/step_output_PMT.txt", std::ofstream::out | std::ofstream::trunc);
 	//RunOutputFile << "Energy (eV)\tTime (ns)\tRun\n";
 
-	//UImanager->ApplyCommand("/vis/open OGL");
+    //UImanager->ApplyCommand("/vis/open OGL");
 	//UImanager->ApplyCommand("/vis/view/set/viewpointVector 1 1 1");
 	//UImanager->ApplyCommand("/vis/drawVolume");
 	//UImanager->ApplyCommand("/vis/scene/add/trajectories optical");
@@ -56,7 +55,7 @@ int main(int argc, char** argv){
 	//UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
 	//UImanager->ApplyCommand("/vis/scene/endOfEventAction accumulate");
 
-	UImanager->ApplyCommand("/run/beamOn 2");
+	UImanager->ApplyCommand("/run/beamOn 20");
 
 	//ui->SessionStart();
 
