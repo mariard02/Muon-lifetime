@@ -1,4 +1,5 @@
 #include "generator.hh"
+#include "Randomize.hh"
 
 MyPrimaryGenerator::MyPrimaryGenerator()
 {
@@ -18,10 +19,21 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 	G4ThreeVector pos(0., 0., -4.*m);
 	G4ThreeVector mom(0., 0., 1.);
 
+	G4double E_min = 200. * MeV;
+	G4double E_max = 900. * MeV;
+
+	G4double EnergyMuon = GenerateEnergy(E_min, E_max);
+
 	fParticleGun->SetParticlePosition(pos);
 	fParticleGun->SetParticleMomentumDirection(mom);
-	fParticleGun->SetParticleMomentum(500*MeV);
+	fParticleGun->SetParticleEnergy(EnergyMuon);
 	fParticleGun->SetParticleDefinition(particle);
 
 	fParticleGun->GeneratePrimaryVertex(anEvent);
+}
+
+G4double MyPrimaryGenerator::GenerateEnergy(G4double E_min, G4double E_max)
+{
+	G4double r = G4UniformRand();
+	return E_max * r + E_min * (1 - r);
 }
