@@ -8,6 +8,10 @@ RunAction::RunAction():
     RunOutputFile.open("./output/PMT.txt");
     RunOutputFile << "Energy (eV) \t Time (ns) \t Detector ID \t Event ID \t Particle ID \n";
     RunOutputFile.flush();
+
+    CountOutputFile.open("./output/time.txt");
+    CountOutputFile << "Scintillator \t Number of counts \t Event ID \n";
+    CountOutputFile.flush();
 }
 
 // Destructor
