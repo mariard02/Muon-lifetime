@@ -13,11 +13,16 @@ public:
 
     void SetEventID(G4int id) { eventID = id; }
 
+    void EndOfEventAction();
+
 private:
 
     std::ofstream _StepOutputFile1;
+    std::ofstream _StepOutputFile2;
 
     G4int eventID;
+
+    std::map<int, G4double> energyDepositedMap;
 };
 
 #endif

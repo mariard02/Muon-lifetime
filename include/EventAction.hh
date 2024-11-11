@@ -11,11 +11,12 @@ public:
     EventAction(SteppingAction* steppingAction);
     virtual ~EventAction();
 
-    virtual void BeginOfEventAction(const G4Event* event);
-    virtual void EndOfEventAction(const G4Event* event);
+    virtual void BeginOfEventAction(const G4Event* event) override;
+    virtual void EndOfEventAction(const G4Event* event) override;
 
 private:
     SteppingAction* fSteppingAction;
+    std::ofstream TotalEnergyFile;
 };
 
 #endif
