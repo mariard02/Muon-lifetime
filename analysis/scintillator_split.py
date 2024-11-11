@@ -22,7 +22,10 @@ class scintillator_split:
         return counts_split
     
     def event_scintillator(self, num, scin):
-        return self.split_counts()[num][scin][1]
+        for i, j in self.split_counts()[num]:
+            if i == scin:
+                return j
+        return 0
 
 file = "../build/output/time.txt"
 
