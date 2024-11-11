@@ -5,12 +5,12 @@ file = "../build/output/PMT.txt"
 
 energy, time, event, photon_ID = np.loadtxt(file, usecols=[0, 1, 2, 3], skiprows=1, unpack=True)
 
+# SEPARATE THE DATA FROM DIFFERENT EVENTS
+
 number_of_events = int(max(event)) + 1
 
-time_split = [[] for i in range(number_of_events) ]
-energy_split = [[] for i in range(number_of_events) ]
-
-# Separate the data from different events
+time_split = [ [] for i in range(number_of_events) ]
+energy_split = [ [] for i in range(number_of_events) ]
 
 for i in range(len(time)):
 	time_split[int(event[i])].append(time[i])
