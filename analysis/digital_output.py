@@ -6,7 +6,6 @@ file = "../build/output/PMT.txt"
 
 # Open the data
 data = pmt_photons.PMTSplit(file)
-print(data)
 
 # Set parameters
 #event_choice = 0
@@ -78,12 +77,10 @@ sci1 = PMT_filter(0, 1, voltage_time)
 #PMT_filter(0, 2, voltage_time)
 #PMT_filter(0, 3, voltage_time)
 
-print(sci0)
-print(sci1)
-
 overlap = 5e-9 # Minimum duration of the overlap to be detected
 
-def coincidence(event, detector1, detector2, voltage_time):
+def coincidence(event, detector1, detector2, voltage_time, overlap):
+    output = np.array([])
     sci0 = np.atleast_2d(PMT_filter(event, detector1, voltage_time))
     sci1 = np.atleast_2d(PMT_filter(event, detector2, voltage_time))
 
@@ -107,7 +104,8 @@ def coincidence(event, detector1, detector2, voltage_time):
 
                 if len_coincidence > overlap:
                     print(f'COINCIDENCE at time = {start_coincidence} s')
-
-coincidence(0, 0, 1, voltage_time)
+                    output = np.append(output, start_coincidence)
+    return output
+coincidence(0, 0, 1, voltage_time, overlap)
 
 plt.show()
