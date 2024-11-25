@@ -30,3 +30,12 @@ class PMTSplit:
     def event_detector(self, event_choice, scintillator_choice):
         # Access times for a specific event and detector
         return np.array(self.split()[event_choice][scintillator_choice])
+    
+    def discriminator(self, event_choice, scintillator_choice):
+        detector = self.event_detector(event_choice, scintillator_choice) # data from a certain pmt and event
+
+        quEff = 0.25  # Quantum efficiency (optional)
+        gain = 1e5  # PMT gain
+        qe = 1.60217663e-19  # Charge of an electron
+        dt = 0.1e-9  # Time interval in ns
+        total_time = self.time.max()

@@ -49,21 +49,30 @@ plt.legend()
 # Vector that is True when we have a signal above the threshold
 
 # TO DO : ALL THE SCINTILLATORS AND EVENTS
-filtered_signal = np.array((voltage_time[0, 0, :] - discriminator_threshold) > 0 )
-time_signal = 0
-start_time = 0
+def PMT_filter(event, detector, voltage_time):
 
-for index, i in enumerate(filtered_signal):
-    if i == True:
-        time_signal += dt
-        if filtered_signal[index - 1] == False:
-            start_time = index * dt
-            #print(f'start = {start_time}')
-    else:
-        if (filtered_signal[index - 1] == True and time_signal >= discriminator_width_min ):
-            print(f'start = {start_time}')
-            print(f'end = {start_time + time_signal}')
-            print(f'duration = {time_signal} seconds')
-            time_signal = 0
+    print(f'DETECTOR {detector}')
+
+    filtered_signal = np.array((voltage_time[event, detector, :] - discriminator_threshold) > 0 )
+    time_signal = 0
+    start_time = 0
+
+    for index, i in enumerate(filtered_signal):
+        if i == True:
+            time_signal += dt
+            if filtered_signal[index - 1] == False:
+                start_time = index * dt
+                #print(f'start = {start_time}')
+        else:
+            if (filtered_signal[index - 1] == True and time_signal >= discriminator_width_min ):
+                print(f'start = {start_time}')
+                print(f'end = {start_time + time_signal}')
+                print(f'duration = {time_signal} seconds')
+                time_signal = 0
+
+PMT_filter(0, 0, voltage_time)
+PMT_filter(0, 1, voltage_time)
+#PMT_filter(0, 2, voltage_time)
+#PMT_filter(0, 3, voltage_time)
 
 plt.show()
