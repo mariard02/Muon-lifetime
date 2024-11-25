@@ -7,7 +7,9 @@ class PMTSplit:
 
         # Determine the number of events and detectors
         self.number_of_events = int(np.max(self.event)) + 1
-        self.number_of_detectors = int(np.max(self.detector)) + 1
+        self.number_of_detectors = 4 #int(np.max(self.detector)) + 1
+
+        self.event_list = set(self.event)
 
         self.quEff = 0.25  # Quantum efficiency (optional)
         self.gain = 1e5  # PMT gain
@@ -19,6 +21,10 @@ class PMTSplit:
         self.overlap = 5e-9
         self.discriminator_threshold = 50e-3 # minimum voltage IN VOLTS
         self.discriminator_width_min = 20e-9 # minumum time that we need a signal to occur
+
+        self.delay = 100e-9 # Dead time after the start during which decays cannot be detected
+
+        self.time_vector = np.arange(0, (self.total_time + self.dt)*1e-9, self.dt)
 
     def __str__(self):
         # Return summary information about events and detectors
@@ -43,8 +49,8 @@ class PMTSplit:
         return np.array(self.split()[event_choice][scintillator_choice])
     
     def voltage(self):
-        time_vector = np.arange(0, (self.total_time + self.dt)*1e-9, self.dt)
-        time_bins = np.zeros((self.number_of_events, self.number_of_detectors, len(time_vector)), dtype=int)
+        
+        time_bins = np.zeros((self.number_of_events, self.number_of_detectors, len(self.time_vector)), dtype=int)
         for i in range(len(self.time)):
             event_idx = int(self.event[i])
             detector_idx = int(self.detector[i])
@@ -82,6 +88,10 @@ class PMTSplit:
         sci0 = np.atleast_2d(self.PMT_filter(event, detector1))
         sci1 = np.atleast_2d(self.PMT_filter(event, detector2))
 
+        # No coincidence if there is no signal in one of the detectors
+        if sci0.size == 0 or sci1.size == 0:       
+            return output
+
         start_0 = np.atleast_1d(sci0[:, 0]) # column of start times of the first detector
         start_1 = np.atleast_1d(sci1[:, 0]) # column of start times of the first detector
 
@@ -101,6 +111,5 @@ class PMTSplit:
                     len_coincidence = end_coincidence - start_coincidence
 
                     if len_coincidence > self.overlap:
-                        print(f'COINCIDENCE at time = {start_coincidence} s')
                         output = np.append(output, start_coincidence)
         return output

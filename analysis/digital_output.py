@@ -19,10 +19,10 @@ for event in range(data.number_of_events):
 
     for element in coincidence_up:
         if abs(element - start_time) >= data.delay:
-            time_output = np.append(time_output, element)
+            time_output = np.append(time_output, element - start_time)
 
     for element in coincidence_down:
         if abs(element - start_time) >= data.delay:
-            time_output = np.append(time_output, element)
+            time_output = np.append(time_output, element - start_time)
 
 print(time_output)
