@@ -1,6 +1,6 @@
 import numpy as np
 
-class PMTSplit:
+class PMTAnalysis:
     def __init__(self, file):
         # Load data from the file
         self.time, self.detector, self.event = np.loadtxt(file, usecols=[0, 1, 2], skiprows=1, unpack=True)
@@ -84,32 +84,27 @@ class PMTSplit:
         return output
     
     def coincidence(self, event, detector1, detector2):
-        output = np.array([])
+
         sci0 = np.atleast_2d(self.PMT_filter(event, detector1))
         sci1 = np.atleast_2d(self.PMT_filter(event, detector2))
 
-        # No coincidence if there is no signal in one of the detectors
-        if sci0.size == 0 or sci1.size == 0:       
-            return output
+        if sci0.size == 0 or sci1.size == 0:
+            return np.array([])
 
-        start_0 = np.atleast_1d(sci0[:, 0]) # column of start times of the first detector
-        start_1 = np.atleast_1d(sci1[:, 0]) # column of start times of the first detector
+        start_0, end_0 = sci0[:, 0], sci0[:, 1]
+        start_1, end_1 = sci1[:, 0], sci1[:, 1]
 
-        end_0 = np.atleast_1d(sci0[:, 1]) # column of end times of the first detector
-        end_1 = np.atleast_1d(sci1[:, 1]) # column of end times of the first detector
+        time_diffs = np.abs(start_0[:, np.newaxis] - start_1)  
+        valid_pairs = time_diffs < self.discriminator_width_min  
 
-        for count0, start_detection0 in enumerate(start_0):
-            for count1, start_detection1 in enumerate(start_1):
-                if abs(start_detection0 - start_detection1) < self.discriminator_width_min:
-                    
-                    end_detection0 = end_0[count0]
-                    end_detection1 = end_1[count1]
+        if not valid_pairs.any():
+            return np.array([])
 
-                    start_coincidence = max(start_detection0, start_detection1)
-                    end_coincidence = min(end_detection0, end_detection1)
+        idx_0, idx_1 = np.where(valid_pairs)  
+        start_coincidence = np.maximum(start_0[idx_0], start_1[idx_1])
+        end_coincidence = np.minimum(end_0[idx_0], end_1[idx_1])
 
-                    len_coincidence = end_coincidence - start_coincidence
+        len_coincidence = end_coincidence - start_coincidence
 
-                    if len_coincidence > self.overlap:
-                        output = np.append(output, start_coincidence)
-        return output
+        valid_coincidences = len_coincidence > self.overlap
+        return start_coincidence[valid_coincidences]
