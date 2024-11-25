@@ -50,8 +50,8 @@ plt.legend()
 
 # TO DO : ALL THE SCINTILLATORS AND EVENTS
 def PMT_filter(event, detector, voltage_time):
-
-    print(f'DETECTOR {detector}')
+    output = np.array([])
+    #print(f'DETECTOR {detector}')
 
     filtered_signal = np.array((voltage_time[event, detector, :] - discriminator_threshold) > 0 )
     time_signal = 0
@@ -65,14 +65,49 @@ def PMT_filter(event, detector, voltage_time):
                 #print(f'start = {start_time}')
         else:
             if (filtered_signal[index - 1] == True and time_signal >= discriminator_width_min ):
-                print(f'start = {start_time}')
-                print(f'end = {start_time + time_signal}')
-                print(f'duration = {time_signal} seconds')
+                output = np.append(output, np.array([start_time, start_time + time_signal]))
+                #print(f'start = {start_time}')
+                #print(f'end = {start_time + time_signal}')
+                #print(f'duration = {time_signal} seconds')
                 time_signal = 0
+    
+    return output
 
-PMT_filter(0, 0, voltage_time)
-PMT_filter(0, 1, voltage_time)
+sci0 = PMT_filter(0, 0, voltage_time)
+sci1 = PMT_filter(0, 1, voltage_time)
 #PMT_filter(0, 2, voltage_time)
 #PMT_filter(0, 3, voltage_time)
+
+print(sci0)
+print(sci1)
+
+overlap = 5e-9 # Minimum duration of the overlap to be detected
+
+def coincidence(event, detector1, detector2, voltage_time):
+    sci0 = np.atleast_2d(PMT_filter(event, detector1, voltage_time))
+    sci1 = np.atleast_2d(PMT_filter(event, detector2, voltage_time))
+
+    start_0 = np.atleast_1d(sci0[:, 0]) # column of start times of the first detector
+    start_1 = np.atleast_1d(sci1[:, 0]) # column of start times of the first detector
+
+    end_0 = np.atleast_1d(sci0[:, 1]) # column of end times of the first detector
+    end_1 = np.atleast_1d(sci1[:, 1]) # column of end times of the first detector
+
+    for count0, start_detection0 in enumerate(start_0):
+        for count1, start_detection1 in enumerate(start_1):
+            if abs(start_detection0 - start_detection1) < 20e-9:
+                
+                end_detection0 = end_0[count0]
+                end_detection1 = end_1[count1]
+
+                start_coincidence = max(start_detection0, start_detection1)
+                end_coincidence = min(end_detection0, end_detection1)
+
+                len_coincidence = end_coincidence - start_coincidence
+
+                if len_coincidence > overlap:
+                    print(f'COINCIDENCE at time = {start_coincidence} s')
+
+coincidence(0, 0, 1, voltage_time)
 
 plt.show()
