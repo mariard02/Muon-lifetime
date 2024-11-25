@@ -9,7 +9,7 @@ data = pmt_photons.PMTSplit(file)
 print(data)
 
 # Set parameters
-event_choice = 6
+#event_choice = 0
 scintillator_choice = 0
 quEff = 0.25  # Quantum efficiency (optional)
 gain = 1e5  # PMT gain
@@ -33,21 +33,37 @@ number_electrons_time = time_bins / dt * gain * quEff
 
 voltage_time = number_electrons_time * qe * resistance
 
-discriminator_threshold = 50e-3
-discriminator_width_min = 20e-9
+discriminator_threshold = 50e-3 # minimum voltage IN VOLTS
+discriminator_width_min = 20e-9 # minumum time that we need a signal to occur
 
 plt.figure()
-plt.plot(voltage_time[8, 3, :])
-plt.show()
-
-# Plot histogram of times for separated events
-"""plt.figure()
-plt.title("Time in each event")
-plt.xlabel("Time (ns)")
-plt.ylabel("Number of photons")
-for i in range(data.number_of_detectors):
-    plt.hist(data.split()[event_choice][i], bins=200, label=f'Scintillator {i}', alpha=0.7)
+plt.xlabel("Time (s)")
+plt.ylabel("Voltage (V)")
+plt.axhline(discriminator_threshold, color = "red")
+for event_choice in range(data.number_of_events):
+    plt.plot(time_vector, voltage_time[event_choice, 0, :], label = f'{event_choice}')
 
 plt.legend()
+
+
+# Vector that is True when we have a signal above the threshold
+
+# TO DO : ALL THE SCINTILLATORS AND EVENTS
+filtered_signal = np.array((voltage_time[0, 0, :] - discriminator_threshold) > 0 )
+time_signal = 0
+start_time = 0
+
+for index, i in enumerate(filtered_signal):
+    if i == True:
+        time_signal += dt
+        if filtered_signal[index - 1] == False:
+            start_time = index * dt
+            #print(f'start = {start_time}')
+    else:
+        if (filtered_signal[index - 1] == True and time_signal >= discriminator_width_min ):
+            print(f'start = {start_time}')
+            print(f'end = {start_time + time_signal}')
+            print(f'duration = {time_signal} seconds')
+            time_signal = 0
+
 plt.show()
-"""
