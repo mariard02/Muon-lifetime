@@ -78,7 +78,10 @@ class PMTAnalysis:
                     start_time = index * self.dt
             else:
                 if (filtered_signal[index - 1] == True and time_signal >= self.discriminator_width_min ):
-                    output = np.append(output, np.array([start_time, start_time + time_signal]))
+
+                    output = np.array(output.tolist() + [[start_time, start_time + time_signal]])
+
+                    # output = np.append(output, np.array([[start_time, start_time + time_signal]]))
                     time_signal = 0
         
         return output
