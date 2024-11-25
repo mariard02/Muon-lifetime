@@ -4,10 +4,10 @@ import pmt_photons
 
 file = "../build/output/PMT.txt"
 
+output_file = "../build/output/decay_time.txt"
+
 # Open the data
 data = pmt_photons.PMTAnalysis(file)
-
-print(data.PMT_filter(0, 0))
 
 time_output = []
 
@@ -23,5 +23,4 @@ for event in range(data.number_of_events):
     time_output.extend(valid_up - start_time)
     time_output.extend(valid_down - start_time)
 
-
-print(time_output)
+np.savetxt(output_file, time_output, delimiter=' ')
