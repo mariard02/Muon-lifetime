@@ -61,7 +61,7 @@ print(f"Error = {mean_time_error} s")
 
 plt.figure()
 plt.plot(time_vec, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
-plt.errorbar(bin, hist, xerr=x_error * np.ones_like(bin), fmt = '.', label = "Simulation data")
+plt.errorbar(bin[hist != 0], hist[hist != 0], xerr=x_error, fmt = '.', label = "Simulation data")
 plt.xlabel("t (s)")
 plt.ylabel("dN/dt")
 plt.legend()
