@@ -200,10 +200,13 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	rotation->rotateX(90. * deg);
 	rotation->rotateZ(90. * deg);
 
+	G4RotationMatrix* rotation180 = new G4RotationMatrix(*rotation);
+	rotation180->rotateX(180. * deg);
+
 	G4LogicalVolume *logicFiber = new G4LogicalVolume(solidFiberBox, polystyrene_fibre, "logicFiber");
-    G4VPhysicalVolume *physFiber0  = new G4PVPlacement(rotation, G4ThreeVector(0., 22. * cm, - 5. * cm), logicFiber, "physFiber", logicworld, false, 0., true);
+    G4VPhysicalVolume *physFiber0  = new G4PVPlacement(rotation180, G4ThreeVector(0., 22. * cm, - 5. * cm), logicFiber, "physFiber", logicworld, false, 0., true);
 	G4VPhysicalVolume *physFiber1  = new G4PVPlacement(rotation, G4ThreeVector(0., - 22. * cm, - 4. * cm), logicFiber, "physFiber", logicworld, false, 1., true);
-	G4VPhysicalVolume *physFiber2  = new G4PVPlacement(rotation, G4ThreeVector(0., 22. * cm, 4. * cm), logicFiber, "physFiber", logicworld, false, 2., true);
+	G4VPhysicalVolume *physFiber2  = new G4PVPlacement(rotation180, G4ThreeVector(0., 22. * cm, 4. * cm), logicFiber, "physFiber", logicworld, false, 2., true);
 	G4VPhysicalVolume *physFiber3  = new G4PVPlacement(rotation, G4ThreeVector(0., - 22. * cm, 5. * cm), logicFiber, "physFiber", logicworld, false, 3., true);
 
     // Optical surface: mirror between the fiber and the air
