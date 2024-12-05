@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pmt_photons
 
-file = "../build/output/PMT.txt"
+file = "../build/output/PMT_al_200.txt"
 
 output_file = "../build/output/decay_time.txt"
 

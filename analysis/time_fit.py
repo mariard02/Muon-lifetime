@@ -5,7 +5,9 @@ file = "../build/output/decay_time.txt"
 
 data = np.loadtxt(file)
 
-hist, bin = np.histogram(data)
+nbins = 10
+
+hist, bin = np.histogram(data, nbins)
 
 bin = bin[:-1]
 
@@ -26,22 +28,25 @@ time_vec = np.arange(0, total_time, 1e-8)
 
 # We are going to calculate the error of the fit
 # x axis: time. The uncertainty is 20 ns (ASK THIS)
-x_error = 40e-9
+x_error = 20e-9
 # y axis: logarithm of number of counts
 
 x = bin[hist != 0]
 delta_x = x_error * np.ones_like(x)
 
 y = np.log(hist[hist != 0])
+delta_y = 1 / np.sqrt( len(y) )
 
 # ERROR DUE TO UNCERTAINTIES IN MEASUREMENT
+n = len(x)
 sigma_N_squared = np.sum(((y - y.mean()) * (1 - 1 / len(y)))**2 * delta_x**2)
 sigma_D_squared = np.sum((2 * (x - x.mean()) - (2 / len(x)) * np.sum(x - x.mean()))**2 * delta_x**2)
 
 numerator = np.sum(x - x.mean() * (y - y.mean()))
 denominator = np.sum( (x - x.mean())**2 )
 
-sigma_m_exp = np.sqrt((sigma_N_squared / denominator**2) + (numerator**2 * sigma_D_squared / denominator**4))
+sigma_m_exp_x = np.sqrt( np.sum( ((n * x - np.sum(x)) / (n * sum(x**2) - sum(x)**2))**2 * delta_y**2 ) )
+sigma_m_exp = np.sqrt((sigma_N_squared / denominator**2) + (numerator**2 * sigma_D_squared / denominator**4) + sigma_m_exp_x**2)
 
 # ERROR DUE TO STATISTICAL UNCERTAINTIES
 sigma_x = np.sqrt( 1/len(x) * np.sum( (x - x.mean())**2 ) )
@@ -60,9 +65,9 @@ mean_time_error = abs( mean_time / a * sigma_a_total )
 print(f"Error = {mean_time_error} s")
 
 plt.figure()
-plt.plot(time_vec, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
-plt.errorbar(bin[hist != 0], hist[hist != 0], xerr=x_error, fmt = '.', label = "Simulation data")
-plt.xlabel("t (s)")
+plt.plot(time_vec*1e6, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
+plt.errorbar(bin[hist != 0]*1e6, hist[hist != 0], xerr=x_error*1e6, yerr=delta_y, fmt = '.', label = "Simulation data")
+plt.xlabel("t (1e-6 s)")
 plt.ylabel("dN/dt")
 plt.legend()
 plt.show()

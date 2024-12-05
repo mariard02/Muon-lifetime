@@ -20,12 +20,14 @@ class PMTAnalysis:
         self.resistance = 50 # Ohms
 
         self.overlap = 5e-9
-        self.discriminator_threshold = 50e-3 # minimum voltage IN VOLTS
+        self.discriminator_threshold = 10e-3 # minimum voltage IN VOLTS
         self.discriminator_width_min = 20e-9 # minumum time that we need a signal to occur
 
         self.delay = 100e-9 # Dead time after the start during which decays cannot be detected
 
         self.time_vector = np.arange(0, (self.total_time + self.dt)*1e-9, self.dt)
+
+        self.voltage_calculated = self.voltage()
 
     def __str__(self):
         # Return summary information about events and detectors
@@ -76,7 +78,8 @@ class PMTAnalysis:
         """
         Returns the start and end time of the signals that are above the threshold
         """
-        voltage_time = self.voltage()
+        #voltage_time = self.voltage()
+        voltage_time = self.voltage_calculated
         output = np.array([])
 
         filtered_signal = np.array((voltage_time[event, detector, :] - self.discriminator_threshold) > 0 )
@@ -101,7 +104,7 @@ class PMTAnalysis:
         """
         Given two detectors, filters the signal to obtain the start and end time of signals and checks if there
         are any coincidences: the start of a signal in one detector must fall within the duration of a signal in the
-        other detector, and the overlap must be longer than self.overlap.
+        other detector, and the overlap must be longer than self.overlap
         """
 
         sci0 = np.atleast_2d(self.PMT_filter(event, detector1))
