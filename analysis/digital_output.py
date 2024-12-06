@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pmt_photons
 
-file = "../build/output/PMT_al_200.txt"
+file = "../build/output/PMT.txt"
 
 output_file = "../build/output/decay_time.txt"
 
@@ -12,6 +12,7 @@ data = pmt_photons.PMTAnalysis(file)
 time_output = []
 
 for event in range(data.number_of_events):
+    print(event)
     coincidence_up = data.coincidence(event, 0, 1)
     coincidence_down = data.coincidence(event, 2, 3)
 

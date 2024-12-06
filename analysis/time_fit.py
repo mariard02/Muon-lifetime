@@ -1,18 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file = "../build/output/decay_time.txt"
+file = "../build/output/decay_time_al_2000.txt"
 
 data = np.loadtxt(file)
 
-nbins = 10
+nbins = int(np.sqrt(len(data)))
 
 hist, bin = np.histogram(data, nbins)
 
 bin = bin[:-1]
+# hist = hist/(bin[1] - bin[0]) ASK THIS
 
 # We expect an exponential. Perform the fit using the least squares method (log -> lin).
-a, b = np.polyfit(bin[hist != 0], np.log(hist[hist != 0]), 1)
+a, b = np.polyfit(bin[(hist != 0) & (bin < 10e-6)], np.log(hist[(hist != 0) & (bin < 10e-6)]), 1)
 
 mean_time = - 1 / a
 print(f'Muon lifetime = {mean_time} s')
@@ -67,9 +68,10 @@ print(f"Error = {mean_time_error} s")
 plt.figure()
 plt.plot(time_vec*1e6, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
 plt.errorbar(bin[hist != 0]*1e6, hist[hist != 0], xerr=x_error*1e6, yerr=delta_y, fmt = '.', label = "Simulation data")
-plt.xlabel("t (1e-6 s)")
+plt.xlabel("t (us)")
 plt.ylabel("dN/dt")
 plt.legend()
+
 plt.show()
 
 
