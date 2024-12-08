@@ -65,13 +65,17 @@ mean_time_error = abs( mean_time / a * sigma_a_total )
 
 print(f"Error = {mean_time_error} s")
 
+plt.rcParams.update({
+    'font.family': 'serif',
+})
+
 plt.figure()
 plt.plot(time_vec*1e6, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
 plt.errorbar(bin[hist != 0]*1e6, hist[hist != 0], xerr=x_error*1e6, yerr=delta_y, fmt = '.', label = "Simulation data")
-plt.xlabel("t (us)")
-plt.ylabel("dN/dt")
+plt.xlabel(r"t ($\mu$s)")
+plt.ylabel(r"$\frac{dN}{dt}$", rotation = 0, fontsize= 12)
 plt.legend()
-
+plt.savefig("muon_histogram.png")
 plt.show()
 
 
