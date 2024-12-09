@@ -45,9 +45,9 @@ make
 6. **Run the simulation**
 Run the following command in the build directory:
 ```
-./SincilatorSim <number_of_events> <visualization>
+./SincilatorSim <number_of_events> <vis>
 ```
-Replace <number_of_events> with the desired number of events, and <visualization> with 1 if you want to see a visualization of the events. If visualization is not needed, leave this blank or enter any other value.
+Replace <number_of_events> with the desired number of events, and <vis> with 1 if you want to see a visualization of the events. If visualization is not needed, leave this blank or enter any other value.
 
 **REMARK:** Turning on event visualization is heavily discouraged, particularly for more than one event per run, as it consumes significant memory and noticeably increases runtime.
 
@@ -88,3 +88,7 @@ python3 time_fit.py
 ```
 
 This will fit the data in decay_time.txt to the expected distribution and calculates the error from the fit. The final calculated lifetime, as long as its uncertainty, is shown in the terminal window. A graphical representation of the data distribution is shown in a new window, and this is also saved as muon_histogram.png in the analysis folder.
+
+# References
+* Scintillators: EJ-200 scintillator. Datasheet available [here](https://wiki.jlab.org/ciswiki/images/4/49/EJ-200.pdf).
+* Photomultipliers: Hamamatsu 2059. Datasheet available [here](https://www.hamamatsu.com/content/dam/hamamatsu-photonics/sites/documents/99_SALES_LIBRARY/etd/R1828-01_R2059_TPMH1259E.pdf).
