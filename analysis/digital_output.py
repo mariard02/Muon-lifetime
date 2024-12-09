@@ -2,9 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pmt_photons
 
-file = "../build/output/PMT.txt"
+file = "../build/output/PMT_al_200.txt"
 
 output_file = "../build/output/decay_time.txt"
+
+f = open(output_file, "r+")
+f.seek(0) 
+f.truncate()  
 
 # Open the data
 data = pmt_photons.PMTAnalysis(file)

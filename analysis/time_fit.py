@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file = "../build/output/decay_time_al_2000.txt"
+file = "../build/output/decay_time.txt"
 
 data = np.loadtxt(file)
 
