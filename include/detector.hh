@@ -13,10 +13,7 @@ public:
 
 private:
 	virtual G4bool ProcessHits(G4Step *, G4TouchableHistory *);
-	std::ofstream OutputFile;
-	std::ofstream newFile;
 
-	G4PhysicsFreeVector *quEff;
 
 };
 

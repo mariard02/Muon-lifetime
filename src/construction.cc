@@ -128,7 +128,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 	polystyrene_fibre->SetMaterialPropertiesTable(mptWLSfiber);
 
 	// CREATE THE WORLD
-	G4Box *solidworld = new G4Box("solidworld", 8.*m, 8.*m, 8.*m);
+	G4Box *solidworld = new G4Box("solidworld", 2.*m, 2.*m, 2.*m);
 	G4LogicalVolume *logicworld = new G4LogicalVolume(solidworld, worldMaterial, "logicWorld");
 	G4VPhysicalVolume *physworld  = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicworld, "physworld", 0, false, 0., true);
 
@@ -288,7 +288,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
 void MyDetectorConstruction::ConstructSDandField()
 {
-	MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
+	//MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
 
-	logicDetector->SetSensitiveDetector(sensDet);
+	//logicDetector->SetSensitiveDetector(sensDet);
 }

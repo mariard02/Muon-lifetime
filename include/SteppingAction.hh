@@ -18,11 +18,9 @@ public:
 private:
 
     std::ofstream _StepOutputFile1;
-    //std::ofstream _StepOutputFile2;
 
     G4int eventID;
 
-    //std::map<int, G4double> energyDepositedMap;
 };
 
 #endif

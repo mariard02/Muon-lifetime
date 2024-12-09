@@ -27,15 +27,13 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
              uy = sinTheta * std::sin(phi),
              uz = cosTheta;
 			 
-	G4ThreeVector pos(0., 0., -5.*m);
+	G4ThreeVector pos(0., 0., -1.5*m);
 	G4ThreeVector mom(0., 0., 1.);
 
 	G4double E_min = 40. * MeV;
 	G4double E_max = 100. * MeV;
 
 	G4double EnergyMuon = GenerateEnergy(E_min, E_max);
-
-	G4cout << EnergyMuon << "\n";
 
 	fParticleGun->SetParticlePosition(pos);
 	fParticleGun->SetParticleMomentumDirection(mom);
