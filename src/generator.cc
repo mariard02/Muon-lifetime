@@ -30,14 +30,14 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 	G4ThreeVector pos(0., 0., -1.5*m);
 	G4ThreeVector mom(0., 0., 1.);
 
-	G4double E_min = 40. * MeV;
-	G4double E_max = 100. * MeV;
+	G4double E_min = 110. * MeV;
+	G4double E_max = 145. * MeV;
 
 	G4double EnergyMuon = GenerateEnergy(E_min, E_max);
 
 	fParticleGun->SetParticlePosition(pos);
 	fParticleGun->SetParticleMomentumDirection(mom);
-	fParticleGun->SetParticleMomentum(EnergyMuon);
+	fParticleGun->SetParticleEnergy(EnergyMuon);
 	fParticleGun->SetParticleDefinition(particle);
 
 	fParticleGun->GeneratePrimaryVertex(anEvent);

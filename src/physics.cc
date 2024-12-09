@@ -2,12 +2,12 @@
 
 MyPhysicsList::MyPhysicsList()
 {
-	RegisterPhysics (new G4EmStandardPhysics());
-	RegisterPhysics (new G4OpticalPhysics());
-	RegisterPhysics (new G4DecayPhysics());
-	RegisterPhysics (new G4RadioactiveDecayPhysics());
-	RegisterPhysics (new G4HadronPhysicsFTFP_BERT());
-	RegisterPhysics (new G4HadronPhysicsQGSP_BERT());
+	RegisterPhysics (new G4EmStandardPhysics(0));
+	RegisterPhysics (new G4OpticalPhysics(0));
+	RegisterPhysics (new G4DecayPhysics(0));
+	RegisterPhysics (new G4RadioactiveDecayPhysics(0));
+	RegisterPhysics (new G4HadronPhysicsFTFP_BERT(0));
+	RegisterPhysics (new G4HadronPhysicsQGSP_BERT(0));
 };
 
 MyPhysicsList::~MyPhysicsList(){}; 
