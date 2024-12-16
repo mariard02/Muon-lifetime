@@ -49,7 +49,7 @@ int main(int argc, char** argv){
   	
   	runManager->Initialize();
 
-	if (argv[2] == 1){
+	if (argv[2]){
 		G4UIExecutive *ui = new G4UIExecutive(argc, argv);
 
 		G4VisManager *visManager = new G4VisExecutive();
