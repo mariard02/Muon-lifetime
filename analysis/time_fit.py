@@ -29,12 +29,11 @@ a, b = np.polyfit(bin[(hist != 0) & (bin < 10e-6)], np.log(hist[(hist != 0) & (b
 """
 weights = 1 / delta_y**2  
 
-# Ajuste lineal ponderado en escala logarítmica
 p, cov = np.polyfit(x, y, 1, w=weights, cov=True)
-a, b = p  # Parámetros del ajuste
+a, b = p  
 
 mean_time = - 1 / a
-print(f'Muon lifetime = {mean_time} s')
+print(f'Muon lifetime = {mean_time*1e6} us')
 
 total_time = bin[-1]
 
@@ -69,7 +68,7 @@ sigma_a_total = np.sqrt(sigma_m_est**2 + sigma_m_exp**2)
 
 mean_time_error = abs( mean_time / a * sigma_a_total )
 
-print(f"Error = {mean_time_error} s")
+print(f"Error = {mean_time_error*1e6} us")
 
 plt.rcParams.update({
     'font.family': 'serif',
