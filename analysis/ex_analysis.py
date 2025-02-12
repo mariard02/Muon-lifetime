@@ -8,7 +8,7 @@ counts = np.loadtxt(file_path, skiprows=1, usecols=(4,))
 frec = 50e6
 time_unit = 1/frec*1e6
 print(time_unit)
-time, bins=  np.histogram(data * time_unit, 80)
+time, bins=  np.histogram(data * time_unit, int(np.sqrt(len(data))) + 1)
 bins = bins[:-1]
 
 x_error = 20e-9
@@ -73,4 +73,5 @@ plt.errorbar(bins[time != 0], time[time != 0], xerr=x_error, yerr=np.sqrt(time[t
 plt.xlabel('Time (us)')
 plt.ylabel('dN/dt')
 plt.legend()
+#plt.xlim(right = 30)
 plt.show()
