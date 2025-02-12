@@ -12,31 +12,37 @@ hist, bin = np.histogram(data, nbins)
 bin = bin[:-1]
 # hist = hist/(bin[1] - bin[0]) ASK THIS
 
+# We are going to calculate the error of the fit
+# x axis: time. The uncertainty is 20 ns (ASK THIS)
+x_error = 20e-9
+
+# y axis: logarithm of number of counts
+
+x = bin[(hist != 0) & (bin < 9.e-6)]
+delta_x = x_error * np.ones_like(x)
+
+y = np.log(hist[(hist != 0) & (bin < 9.e-6)])
+delta_y = 1. / np.sqrt(hist[(hist != 0) & (bin < 9.e-6)])
+"""
 # We expect an exponential. Perform the fit using the least squares method (log -> lin).
 a, b = np.polyfit(bin[(hist != 0) & (bin < 10e-6)], np.log(hist[(hist != 0) & (bin < 10e-6)]), 1)
+"""
+weights = 1 / delta_y**2  
+
+# Ajuste lineal ponderado en escala logarítmica
+p, cov = np.polyfit(x, y, 1, w=weights, cov=True)
+a, b = p  # Parámetros del ajuste
 
 mean_time = - 1 / a
 print(f'Muon lifetime = {mean_time} s')
 
 total_time = bin[-1]
 
-time_vec = np.arange(0, total_time, 1e-8)
-
+time_vec = np.arange(0, total_time, 8e-9)
 
 # ----------------------------------------------------------------------------------------------------
 # ERROR ANALYSIS
 # ----------------------------------------------------------------------------------------------------
-
-# We are going to calculate the error of the fit
-# x axis: time. The uncertainty is 20 ns (ASK THIS)
-x_error = 20e-9
-# y axis: logarithm of number of counts
-
-x = bin[hist != 0]
-delta_x = x_error * np.ones_like(x)
-
-y = np.log(hist[hist != 0])
-delta_y = np.sqrt( y )
 
 # ERROR DUE TO UNCERTAINTIES IN MEASUREMENT
 n = len(x)
@@ -71,7 +77,7 @@ plt.rcParams.update({
 
 plt.figure()
 plt.plot(time_vec*1e6, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
-plt.errorbar(bin[hist != 0]*1e6, hist[hist != 0], xerr=x_error*1e6, yerr=delta_y, fmt = '.', label = "Simulation data")
+plt.errorbar(bin[hist != 0]*1e6, hist[hist != 0], xerr=x_error*1e6, yerr=np.sqrt(hist[hist != 0]), fmt = '.', label = "Simulation data")
 plt.xlabel(r"t ($\mu$s)")
 plt.ylabel(r"$\frac{dN}{dt}$", rotation = 0, fontsize= 12)
 plt.legend()
