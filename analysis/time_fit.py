@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file = "../build/output/decay_time.txt"
+file = "../build/output/decay_time_al_2000.txt"
 
 data = np.loadtxt(file)
 
@@ -36,7 +36,7 @@ x = bin[hist != 0]
 delta_x = x_error * np.ones_like(x)
 
 y = np.log(hist[hist != 0])
-delta_y = 1 / np.sqrt( len(y) )
+delta_y = np.sqrt( y )
 
 # ERROR DUE TO UNCERTAINTIES IN MEASUREMENT
 n = len(x)
@@ -77,5 +77,3 @@ plt.ylabel(r"$\frac{dN}{dt}$", rotation = 0, fontsize= 12)
 plt.legend()
 plt.savefig("muon_histogram.png")
 plt.show()
-
-
