@@ -1,14 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file_path = "/Users/maria/Desktop/Máster/M1/S1/Labo IV/Muon_lifetime/analysis/2024-12-16_filtered.txt"
+file_path = "2024-12-16_filtered.txt"
 data = np.loadtxt(file_path, skiprows=1, usecols=(3,))
 counts = np.loadtxt(file_path, skiprows=1, usecols=(4,))
+print(f"Number of events = {len(counts)}")
 
 frec = 50e6
 time_unit = 1/frec*1e6
 print(time_unit)
-time, bins=  np.histogram(data * time_unit, int(np.sqrt(len(data))) + 1)
+time, bins=  np.histogram(data * time_unit, int(np.sqrt(len(data))))
 bins = bins[:-1]
 
 x_error = 20e-9
@@ -55,9 +56,15 @@ sigma_xy = 1/len(x) * np.sum( x * y - x.mean()*y.mean() )
 r = sigma_xy / (sigma_x * sigma_y)
 R2 = r**2
 
+print(f"R2 = {R2}")
+
 sigma_m_est = abs(a) * np.sqrt( (r**(-2) - 1)/(len(x) - 2) )
+sigma_b = sigma_m_exp * np.sqrt(np.sum(x**2) / np.sum((x - x.mean())**2))
 
 sigma_a_total = np.sqrt(sigma_m_est**2 + sigma_m_exp**2)
+
+print(f'a = {a} pm {sigma_a_total}')
+print(f'b = {b} pm {sigma_b}')
 
 mean_time_error = abs( mean_time / a * sigma_a_total )
 
@@ -70,8 +77,8 @@ plt.rcParams.update({
 plt.figure(figsize=(10, 6))
 plt.plot(time_vec, np.exp(b) * np.exp(a * time_vec), label = 'Best fit', color = "lightgray")
 plt.errorbar(bins[time != 0], time[time != 0], xerr=x_error, yerr=np.sqrt(time[time != 0]), fmt = '.', label = "Experimental data")
-plt.xlabel('Time (us)')
-plt.ylabel('dN/dt')
+plt.xlabel(r"t ($\mu$s)")
+plt.ylabel('N(t)')
 plt.legend()
-#plt.xlim(right = 30)
+plt.xlim(right = 30)
 plt.show()
