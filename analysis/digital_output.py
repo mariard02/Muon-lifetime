@@ -2,9 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pmt_photons
 
-file = "../build/output/PMT_al_200.txt"
+directory = "../build/output/"
 
-output_file = "../build/output/decay_time.txt"
+file = directory + "PMT_al_200.npy"
+
+output_file = directory + "decay_time_45.txt"
+
 
 f = open(output_file, "r+")
 f.seek(0) 
