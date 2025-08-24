@@ -81,34 +81,7 @@ int main(int argc, char** argv){
 
 		runManager -> BeamOn(atoi(argv[1]));
 	}
-
-	// -------------------------------------------------------------------------------------
-	// NO VISUALIZATION
-
 	
-	// -------------------------------------------------------------------------------------
-
-	// -------------------------------------------------------------------------------------
-	//  VISUALIZATION 
-
-	//G4UIExecutive *ui = new G4UIExecutive(argc, argv);
-
-	//G4VisManager *visManager = new G4VisExecutive();
-	//visManager->Initialize();
-
-	//G4UImanager *UImanager = G4UImanager::GetUIpointer();
-
-    //UImanager->ApplyCommand("/vis/open OGL");
-	//UImanager->ApplyCommand("/vis/view/set/viewpointVector 1 1 1");
-	//UImanager->ApplyCommand("/vis/drawVolume");
-	//UImanager->ApplyCommand("/vis/scene/add/trajectories optical");
-	//UImanager->ApplyCommand("/vis/scene/add/trajectories smooth");
-	//UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
-	//UImanager->ApplyCommand("/vis/scene/endOfEventAction accumulate");
-
-	//ui->SessionStart();
-	// -------------------------------------------------------------------------------------
-
 	G4cout << "The simulation has finished. \n";
 
 	delete runManager;
